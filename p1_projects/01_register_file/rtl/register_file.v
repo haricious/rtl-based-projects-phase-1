@@ -2,17 +2,20 @@
 
 module dff(
     input din, clk,
-    output q, qn
+    output reg q, qn
     );
     
     always@(posedge clk) begin
-        q <= din;
-        qn <= ~din;
+    
+    
     end
 
 endmodule
 
 module register_file(
-
+    input data_in,clk, 
+    output reg dout
     );
+    
+    ff1 dff(data_in, clk, )
 endmodule
