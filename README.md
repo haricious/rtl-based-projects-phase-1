@@ -56,7 +56,7 @@ combinational   sequential      control
 
 | id | project | purpose | status |
 |----|----------|----------|----------|
-| 01 | Flip-Flop Based Register File | Storage Architecture | 🟡 Planned |
+| 01 | Flip-Flop Based Register File | Storage Architecture | In-Progress |
 | 02 | 4-bit Binary Counter | Sequential Design | 🟡 Planned |
 | 03 | Priority Encoder | Input Arbitration | 🟡 Planned |
 | 04 | 4:1 Multiplexer | Data Routing | 🟡 Planned |
