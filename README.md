@@ -206,3 +206,4 @@ TARGET             : FLIP-FLOP REGISTER FILE
 SYSTEM MESSAGE     :
 awaiting first clock edge...
 ```
+auto git test
