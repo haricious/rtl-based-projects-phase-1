@@ -7,9 +7,6 @@ module dff(
     
     always@(posedge clk) begin
 
-        din <= q;
-        qn <= ~q;
-    
     
     end
 
