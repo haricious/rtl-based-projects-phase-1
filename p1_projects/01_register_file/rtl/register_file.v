@@ -20,5 +20,5 @@ module register_file(
     output reg dout
     );
     
-    ff1 dff(data_in, clk, )
+    ff1 dff(data_in, clk, dout, );
 endmodule
