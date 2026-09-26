@@ -6,7 +6,7 @@ reg n0, n1, n2,n3;
 reg s0, s1;
 wire y;
 
-mux4_4x1 dut (n0,n1,n2,n3,s0,s1,y);
+mux_4x1 dut (n0,n1,n2,n3,s0,s1,y);
 
 initial begin
 
