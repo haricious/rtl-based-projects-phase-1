@@ -1,34 +1,23 @@
 `timescale 1ns / 1ps
 
-// 4x1 Multiplexer using behavioural modelling using case
-
-module tb_4_1_mux();
-
-reg [3:0]n;
-reg [1:0]sel;
-wire y;
-
-mux_4x1 dut(n, sel, y);
-initial 
-n=$random;
+module mux_4x1(
+    input [3:0]n,
+    input [1:0]sel,
+    output reg y
+);
 
 always @(*) begin
+    case(sel) 
 
-    n[0]=$random & 3'h7;
-    n[1]=$random & 3'h7;
-    n[2]=$random & 3'h7;
-    n[3]=$random & 3'h7;
+        2'b00: y = n[0];
+        2'b01: y = n[1];
+        2'b10: y = n[2];
+        2'b11: y = n[3];
+    default: y = 1'b0;
+    endcase
 
-    #10;
-    sel = 2'b00;
-    #10;
-    sel = 2'b01;
-    #10;
-    sel = 2'b10;
-    #10;
-    sel = 2'b11;
-        
-    $finish;
-    end
+end
+
+    
 
 endmodule
