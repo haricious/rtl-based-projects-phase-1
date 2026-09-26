@@ -44,7 +44,7 @@ s0=1;
 s1=1;
 
 
-$finish
+$finish;
 
 end
 
