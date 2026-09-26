@@ -14,13 +14,16 @@ initial begin
     n = $random;
     sel = 2'b00;
 
-    #10;
+    #10
+    n = $random;
     sel = 2'b01;
 
     #10;
+    n = $random;
     sel = 2'b10;
 
     #10;
+    n = $random;
     sel = 2'b11;
 
     #10;
