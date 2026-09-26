@@ -1,26 +1,14 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
-// Company: 
-// Engineer: 
-// 
-// Create Date: 09/26/2026 01:04:39 PM
-// Design Name: 
-// Module Name: mux_4x1
-// Project Name: 
-// Target Devices: 
-// Tool Versions: 
-// Description: 
-// 
-// Dependencies: 
-// 
-// Revision:
-// Revision 0.01 - File Created
-// Additional Comments:
-// 
-//////////////////////////////////////////////////////////////////////////////////
-
-
+// 4X1 Multiplexer using boolean expressions
 module mux_4x1(
+    input n0,n1,n2,n3,
+    input s0,s1,
+    output y
+);
 
-    );
+    assign y = (~s0 & ~s1 & n0) |
+           (~s0 &  s1 & n1) |
+           ( s0 & ~s1 & n2) |
+           ( s0 &  s1 & n3);
+
 endmodule
