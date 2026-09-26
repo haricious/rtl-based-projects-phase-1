@@ -12,3 +12,4 @@ Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.mux_4x1
 Compiling module xil_defaultlib.tb_4_1_mux
 Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_4_1_mux_behav
