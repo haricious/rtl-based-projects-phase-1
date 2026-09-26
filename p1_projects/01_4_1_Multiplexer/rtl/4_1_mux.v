@@ -5,7 +5,10 @@ module mux_4x1(
     output y
 );
 
-    assign y = (~s0&~s1&n0)|(~s0&s1&n1)|(s0&~s1&n3)|(s0&s1&n3);
+    assign y = (~s0 & ~s1 & n0) |
+           (~s0 &  s1 & n1) |
+           ( s0 & ~s1 & n2) |
+           ( s0 &  s1 & n3);
 
 endmodule
 
@@ -40,7 +43,7 @@ always @(*) begin
 
     endcase
 
-    default y = 4'b0000;
+    default y = 1'b0;
 
 end
 
