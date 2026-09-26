@@ -45,11 +45,6 @@ s1=1;
 
 $finish
 
-if (y !== 0)
-    $display("FAIL: expected 0, got %b", y);
-else
-    $display("PASS");
-
 
 end
 
