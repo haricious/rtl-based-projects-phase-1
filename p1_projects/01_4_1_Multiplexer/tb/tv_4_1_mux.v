@@ -44,7 +44,7 @@ s0=1;
 s1=1;
 
 
-$finish
+$finish;
 
 end
 
@@ -97,7 +97,7 @@ s1=1;
 
 
 
-$finish
+$finish;
 end
 
 endmodule
@@ -134,7 +134,7 @@ always @(*) begin
     end
 
 
-$finish
+$finish;
 
 endmodule
 
