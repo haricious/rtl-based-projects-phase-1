@@ -107,7 +107,8 @@ endmodule
 
 module tb_4_1_mux();
 
-reg [3:0]n, [1:0]sel;
+reg [3:0]n;
+[1:0]sel;
 wire y;
 
 mux_4x1 dut(n, sel, y);
@@ -116,10 +117,10 @@ n=$random;
 
 always @(*) begin
 
-    n[0]=$random 3'h7;
-    n[1]=$random 3'h7;
-    n[2]=$random 3'h7;
-    n[3]=$random 3'h7
+    n[0]=$random & 3'h7;
+    n[1]=$random & 3'h7;
+    n[2]=$random & 3'h7;
+    n[3]=$random & 3'h7;
 
     #10;
     sel = 2'b00;
