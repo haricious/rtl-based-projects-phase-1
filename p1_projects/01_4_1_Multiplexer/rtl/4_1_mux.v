@@ -34,14 +34,14 @@ module mux_4x1(
 
 always @(*) begin
 
-    case(sel) begin 
+    case(sel) 
 
         2'b00: y = n[0];
         2'b01: y = n[1];
         2'b10: y = n[2];
         2'b11: y = n[3];
-    end 
-    default y = 1'b0;
+    
+    default: y = 1'b0;
     endcase
 
     
