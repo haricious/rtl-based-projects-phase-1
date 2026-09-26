@@ -28,7 +28,7 @@ always @(*) begin
     #10;
     sel = 2'b11;
         
-
+    $finish;
     end
 
 endmodule
