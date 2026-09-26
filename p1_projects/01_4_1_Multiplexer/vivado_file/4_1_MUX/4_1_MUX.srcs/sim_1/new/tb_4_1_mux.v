@@ -31,9 +31,6 @@ always @(*) begin
 
     end
 
-
-$finish;
-
 endmodule
 
 
