@@ -17,7 +17,7 @@ always @(*) begin
     n[0]=$random & 3'h7;
     n[1]=$random & 3'h7;
     n[2]=$random & 3'h7;
-    n[3]=$random & 3'h7
+    n[3]=$random & 3'h7;
 
     #10;
     sel = 2'b00;
