@@ -21,5 +21,29 @@ module mux_4x1(
 
 endmodule
 
+// 4x1 Multiplexer using behavioural modelling using case
+
+module mux_4x1(
+    input [3:0]n,
+    input [1:0]sel,
+    output reg y
+);
+
+always @(*) begin
+
+    case(sel) begin
+
+        2'b00: y = n[0];
+        2'b01: y = n[1];
+        2'b10: y = n[2];
+        2'b11: y = n[3];
+
+    end
+
+    default y = 4'b0000;
+
+end
+
+
 
 
