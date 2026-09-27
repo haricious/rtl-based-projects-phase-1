@@ -1,1 +1,10 @@
 Time resolution is 1 ps
+PASS: y=1
+PASS: y=1
+PASS: y=1
+PASS: y=1
+PASS: y=0
+PASS: y=0
+FAIL: y=0
+FAIL: y=1
+$finish called at time : 80 ns : File "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/02_8x1_Multiplexer/vivado_file/8x1mux.srcs/sim_1/new/tb_mux8x1.v" Line 60
