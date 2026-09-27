@@ -17,12 +17,11 @@ Every checkmark must be earned through implementation, simulation and verificati
 ```text
 SYSTEM STATUS
 
-rtl written          : 0
-testbenches written  : 0
-simulations passed   : 0
-projects completed   : 0 / 10
+rtl written          : 2
+testbenches written  : 2
+projects completed   : 2 / 10
 
-overall progress     : 0%
+overall progress     : 20%
 ```
 
 ---
@@ -56,11 +55,11 @@ combinational   sequential      control
 
 | id | project | purpose | status |
 |----|----------|----------|----------|
-| 01 | Flip-Flop Based Register File | Storage Architecture | 🟢 Done |
+| 01 | Flip-Flop Based Register File | Storage Architecture | 🟡 Planned |
 | 02 | 4-bit Binary Counter | Sequential Design | 🟡 Planned |
 | 03 | Priority Encoder | Input Arbitration | 🟡 Planned |
-| 04 | 4:1 Multiplexer | Data Routing | 🟡 Planned |
-| 05 | 8:1 Multiplexer | Data Routing | 🟡 Planned |
+| 04 | 4:1 Multiplexer | Data Routing | 🟢 Done|
+| 05 | 8:1 Multiplexer | Data Routing |🟢 Done|
 | 06 | 3:8 Decoder | Address Selection | 🟡 Planned |
 | 07 | Traffic Light Controller | FSM Design | 🟡 Planned |
 | 08 | Sequence Detector | Pattern Recognition | 🟡 Planned |
