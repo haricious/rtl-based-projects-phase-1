@@ -169,6 +169,7 @@ endmodule
 
 module tb_4_1_mux();
 
+
 reg n0, n1, n2, n3;
 reg s0, s1;
 wire y;
@@ -190,19 +191,19 @@ if(y!==n0)
     else $display("Passed: 00, y=%b",y);
 s1=0; s0=1; #10;
 if(y!==n1)
-    $display("Failed: 00, y= %b",y);
+    $display("Failed: 01, y= %b",y);
 
-    else $display("Passed: 00, y=%b",y);
+    else $display("Passed: 01, y=%b",y);
 s1=1; s0=0; #10;
 if(y!==n2)
-    $display("Failed: 00, y= %b",y);
+    $display("Failed: 10, y= %b",y);
 
-    else $display("Passed: 00, y=%b",y);
+    else $display("Passed: 01, y=%b",y);
 s1=1; s0=1; #10;
 if(y!==n3)
-    $display("Failed: 00, y= %b",y);
+    $display("Failed: 11, y= %b",y);
 
-    else $display("Passed: 00, y=%b",y);
+    else $display("Passed: 11, y=%b",y);
 
 
 $finish;
