@@ -1,7 +1,7 @@
 `timescale 1ns / 1ps
 
 // 4x1 Multiplexer using behavioural modelling using case
-`timescale 1ns/1ps
+
 
 module tb_4_1_mux;
 
