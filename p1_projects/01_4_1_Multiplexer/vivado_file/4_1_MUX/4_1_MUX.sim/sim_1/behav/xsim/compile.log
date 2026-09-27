@@ -1,4 +1,9 @@
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/01_4_1_Multiplexer/vivado_file/4_1_MUX/4_1_MUX.srcs/sources_1/new/mux_4x1.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module mux_4x1
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/01_4_1_Multiplexer/vivado_file/4_1_MUX/4_1_MUX.srcs/sim_1/new/tb_mux4x1.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module tv_mux4x1
+INFO: [VRFC 10-311] analyzing module tb_mux4x1
+ERROR: [VRFC 10-4982] syntax error near ',' [/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/01_4_1_Multiplexer/vivado_file/4_1_MUX/4_1_MUX.srcs/sim_1/new/tb_mux4x1.v:118]
+WARNING: [VRFC 10-2096] empty statement in sequential block [/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/01_4_1_Multiplexer/vivado_file/4_1_MUX/4_1_MUX.srcs/sim_1/new/tb_mux4x1.v:118]
+ERROR: [VRFC 10-4982] syntax error near 'else' [/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/01_4_1_Multiplexer/vivado_file/4_1_MUX/4_1_MUX.srcs/sim_1/new/tb_mux4x1.v:121]
+ERROR: [VRFC 10-8549] Verilog 2000 keyword 'else' used in incorrect context [/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/01_4_1_Multiplexer/vivado_file/4_1_MUX/4_1_MUX.srcs/sim_1/new/tb_mux4x1.v:121]
+ERROR: [VRFC 10-8530] module 'tb_mux4x1' is ignored due to previous errors [/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/01_4_1_Multiplexer/vivado_file/4_1_MUX/4_1_MUX.srcs/sim_1/new/tb_mux4x1.v:5]
