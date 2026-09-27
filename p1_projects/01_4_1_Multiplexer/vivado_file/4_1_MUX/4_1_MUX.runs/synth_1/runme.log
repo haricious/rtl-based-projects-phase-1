@@ -24,3 +24,25 @@ INFO: [Designutils 20-4379] Flow is switching to default flow due to incremental
 INFO: [Synth 8-7079] Multithreading enabled for synth_design using a maximum of 7 processes.
 INFO: [Synth 8-7078] Launching helper process for spawning children vivado processes
 INFO: [Synth 8-7075] Helper process launched with PID 85118
+---------------------------------------------------------------------------------
+Starting Synthesize : Time (s): cpu = 00:00:05 ; elapsed = 00:00:05 . Memory (MB): peak = 2248.328 ; gain = 416.672 ; free physical = 233 ; free virtual = 11715
+---------------------------------------------------------------------------------
+INFO: [Synth 8-6157] synthesizing module 'mux_4x1' [/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/01_4_1_Multiplexer/vivado_file/4_1_MUX/4_1_MUX.srcs/sources_1/new/mux_4x1.v:3]
+INFO: [Synth 8-6155] done synthesizing module 'mux_4x1' (0#1) [/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/01_4_1_Multiplexer/vivado_file/4_1_MUX/4_1_MUX.srcs/sources_1/new/mux_4x1.v:3]
+---------------------------------------------------------------------------------
+Finished Synthesize : Time (s): cpu = 00:00:06 ; elapsed = 00:00:07 . Memory (MB): peak = 2332.297 ; gain = 500.641 ; free physical = 242 ; free virtual = 11570
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Constraint Validation : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2344.172 ; gain = 512.516 ; free physical = 241 ; free virtual = 11569
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Loading Part and Timing Information
+---------------------------------------------------------------------------------
+Loading part: xc7s100fgga676-2
+INFO: [Device 21-403] Loading part xc7s100fgga676-2
+---------------------------------------------------------------------------------
+Finished Loading Part and Timing Information : Time (s): cpu = 00:00:07 ; elapsed = 00:00:07 . Memory (MB): peak = 2344.172 ; gain = 512.516 ; free physical = 241 ; free virtual = 11568
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished RTL Optimization Phase 2 : Time (s): cpu = 00:00:07 ; elapsed = 00:00:08 . Memory (MB): peak = 2353.078 ; gain = 521.422 ; free physical = 223 ; free virtual = 11551
+---------------------------------------------------------------------------------
