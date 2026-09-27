@@ -33,7 +33,7 @@ mux4x1 m1 (.in(n[3:0]), .s(sel[1:0]),.out(w1));
 mux4x1 m2 (.in(n[7:4]), .s(sel[1:0]), .out(w2));
 
 
-assign y = sel[2]?w1:w2;
+assign y = sel[2]?w2:w1;
 
 
 endmodule
