@@ -1,7 +1,4 @@
-Running: xsim.dir/tv_mux4x1_behav/xsimk -simmode gui -wdb tv_mux4x1_behav.wdb -simrunnum 0 -socket 42863
+Running: xsim.dir/tv_mux4x1_behav/xsimk -simmode gui -wdb tv_mux4x1_behav.wdb -simrunnum 0 -socket 34325
 Design successfully loaded
 Design Loading Memory Usage: 417332 KB (Peak: 417388 KB)
-Design Loading CPU Usage: 1430 ms
-Simulation completed
-Simulation Memory Usage: 499068 KB (Peak: 556600 KB)
-Simulation CPU Usage: 1480 ms
+Design Loading CPU Usage: 1500 ms
