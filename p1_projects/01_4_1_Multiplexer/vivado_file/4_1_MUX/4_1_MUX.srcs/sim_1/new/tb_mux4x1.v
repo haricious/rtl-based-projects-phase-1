@@ -21,25 +21,25 @@ s1=0; s0=0; #10;
 if(y!==n0)
     $display("Failed: 00, y= %b",y);
 
-    else $display("Passed: 00, y=%b",y)
+    else $display("Passed: 00, y=%b",y);
 s1=0; s0=1; #10;
 if(y!==n1)
     $display("Failed: 00, y= %b",y);
 
-    else $display("Passed: 00, y=%b",y)
+    else $display("Passed: 00, y=%b",y);
 s1=1; s0=0; #10;
 if(y!==n2)
     $display("Failed: 00, y= %b",y);
 
-    else $display("Passed: 00, y=%b",y)
+    else $display("Passed: 00, y=%b",y);
 s1=1; s0=1; #10;
 if(y!==n3)
     $display("Failed: 00, y= %b",y);
 
-    else $display("Passed: 00, y=%b",y)
+    else $display("Passed: 00, y=%b",y);
 
 
-$finish
+$finish;
 end
 
 
