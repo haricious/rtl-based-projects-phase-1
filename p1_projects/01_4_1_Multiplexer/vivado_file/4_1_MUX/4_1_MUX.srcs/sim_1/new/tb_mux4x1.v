@@ -115,7 +115,7 @@ module tb_mux4x1();
         end
         else begin
             $display("PASS: n=%b sel=%b y=%b", n, sel, y);
-                     n, sel, n[sel], y);
+   
             fail_count = fail_count + 1;
         end
         else begin
