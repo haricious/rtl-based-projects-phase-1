@@ -30,7 +30,7 @@ module tb_4_1_mux;
         n = 4'b0010;
         sel = 2'b01;
         #10;
-        if (y !== n[1])
+        if (y !== n[2])
             $display("FAIL: sel=%b, expected=%b, got=%b", sel, n[1], y);
         else
             $display("PASS: sel=%b, y=%b", sel, y);
