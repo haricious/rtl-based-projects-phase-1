@@ -12,8 +12,8 @@ case(s)
 
 2'b00: out = in[0];
 2'b01: out = in[1];
-2'b10: out = in[2];
-2'b11: out = in[3];
+2'b10: out = in[1];
+2'b11: out = in[1];
 
 default: out=1'b0;
 endcase
