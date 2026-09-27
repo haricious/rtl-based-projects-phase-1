@@ -163,3 +163,19 @@ Synthesis Optimization Complete : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 
 INFO: [Project 1-571] Translating synthesized netlist
 Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2664.039 ; gain = 0.000 ; free physical = 213 ; free virtual = 12062
 INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2766.570 ; gain = 0.000 ; free physical = 271 ; free virtual = 12117
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+Synth Design complete | Checksum: 73c5c468
+INFO: [Common 17-83] Releasing license: Synthesis
+13 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:21 ; elapsed = 00:00:19 . Memory (MB): peak = 2766.605 ; gain = 933.488 ; free physical = 266 ; free virtual = 12115
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1759.996; main = 1759.996; forked = 290.656
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 3992.359; main = 2766.574; forked = 1633.910
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2774.574 ; gain = 0.000 ; free physical = 266 ; free virtual = 12114
+INFO: [Common 17-1381] The checkpoint '/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/01_4_1_Multiplexer/vivado_file/4_1_MUX/4_1_MUX.runs/synth_1/mux_4x1.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file mux_4x1_utilization_synth.rpt -pb mux_4x1_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Sun Sep 27 19:23:08 2026...
