@@ -22,3 +22,4 @@ RELEASE_TYPE="stable
 # Total Virtual      : 24306 MB
 # Available Virtual  : 14624 MB
 #-----------------------------------------------------------
+source mux_4x1.tcl -notrace
