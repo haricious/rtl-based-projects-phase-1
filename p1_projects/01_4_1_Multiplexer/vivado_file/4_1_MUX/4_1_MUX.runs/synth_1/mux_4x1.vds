@@ -169,3 +169,8 @@ Report Instance Areas:
 Finished Writing Synthesis Report : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2649.164 ; gain = 816.047 ; free physical = 192 ; free virtual = 12080
 ---------------------------------------------------------------------------------
 Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2649.164 ; gain = 816.047 ; free physical = 198 ; free virtual = 12085
+Synthesis Optimization Complete : Time (s): cpu = 00:00:14 ; elapsed = 00:00:15 . Memory (MB): peak = 2649.172 ; gain = 816.047 ; free physical = 200 ; free virtual = 12086
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2664.039 ; gain = 0.000 ; free physical = 213 ; free virtual = 12062
+INFO: [Project 1-570] Preparing netlist for logic optimization
