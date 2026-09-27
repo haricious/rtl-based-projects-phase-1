@@ -1,6 +1,38 @@
-# PROJECT 1 - 4X1 MUTIPLEXER
-a 4x1 mutliplexer is a combinational circuit which is also called as data selector. it has 4 inputs and 2 select lines and 1 output. the function of the select line is to act as a control signal which selects the mapped data from the input and it is driven by the ouptut. in gate-level to create a multiplexer, we need 4- 3 input AND gates, and 1- 4 input OR gate and 2 NOT gates for select lines. the circuit was tested against various conditions and the waveform output has been obtained.
+# PROJECT 1 — 4:1 MULTIPLEXER
 
-# PROJECT 2 - 8X1 MULTIPLEXER 
-similar to a 4x1 mux but with increased data range. and behaves same as a 4x1 mux. it can be designed using 2- 4x1 mux and 1-2x1 mux. the circuit was tested against various conditions and the waveform output has been obtained.
+A 4:1 multiplexer is a combinational circuit, also called a data selector.
+It has four data inputs, two select lines, and one output.
 
+The select lines act as control signals that determine which input is
+connected to the output.
+
+The gate-level implementation uses:
+- 4 × 3-input AND gates
+- 1 × 4-input OR gate
+- 2 × NOT gates
+
+The circuit was tested using multiple input and select combinations.
+The output was verified through simulation and waveform inspection.
+
+---
+
+# PROJECT 2 — 8:1 MULTIPLEXER
+
+An 8:1 multiplexer is a combinational data selector with eight data
+inputs, three select lines, and one output.
+
+The design was implemented hierarchically using:
+- 2 × 4:1 multiplexers
+- 1 × 2:1 selection stage
+
+The lower two select bits, `sel[1:0]`, select an input within each
+4:1 multiplexer. The most significant select bit, `sel[2]`, selects
+between the two intermediate outputs.
+
+The design was tested using all eight select combinations with
+different input patterns.
+
+A deliberate bug was introduced into the 4:1 multiplexer select
+mapping. The self-checking testbench detected the resulting failures.
+The root cause was identified and corrected, followed by a final
+regression with 8/8 tests passing.
