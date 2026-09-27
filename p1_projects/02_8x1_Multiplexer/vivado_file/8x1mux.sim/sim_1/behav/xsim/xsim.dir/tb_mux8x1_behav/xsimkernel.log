@@ -2,3 +2,6 @@ Running: xsim.dir/tb_mux8x1_behav/xsimk -simmode gui -wdb tb_mux8x1_behav.wdb -s
 Design successfully loaded
 Design Loading Memory Usage: 417332 KB (Peak: 417388 KB)
 Design Loading CPU Usage: 1450 ms
+Simulation completed
+Simulation Memory Usage: 499068 KB (Peak: 556600 KB)
+Simulation CPU Usage: 1470 ms
