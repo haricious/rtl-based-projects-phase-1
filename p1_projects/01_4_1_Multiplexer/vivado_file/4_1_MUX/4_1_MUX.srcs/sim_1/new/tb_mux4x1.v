@@ -1,47 +1,211 @@
 `timescale 1ns / 1ps
-// testcase for 4x1 mux using structural modelling 
 
-module tv_mux4x1();
+// testbench code for stress-test
 
-reg n0, n1, n2, n3;
-reg s0, s1;
-wire y;
+module tb_mux4x1();
 
-mux_4x1 dut(n0,n1,n2,n3,s0,s1,y);
+    reg [3:0] n;
+    reg [1:0] sel;
+    wire y;
 
-initial begin
+    integer pass_count;
+    integer fail_count;
 
-//test vector
-n0= 0;
-n1= 1;
-n2= 1;
-n3= 0;
+    mux_4x1 dut(
+        n[0],
+        n[1],
+        n[2],
+        n[3],
+        sel[0],
+        sel[1],
+        y
+    );
 
-s1=0; s0=0; #10;
-if(y!==n0)
-    $display("Failed: 00, y= %b",y);
+    initial begin
 
-    else $display("Passed: 00, y=%b",y);
-s1=0; s0=1; #10;
-if(y!==n1)
-    $display("Failed: 01, y= %b",y);
+        pass_count = 0;
+        fail_count = 0;
 
-    else $display("Passed: 01, y=%b",y);
-s1=1; s0=0; #10;
-if(y!==n2)
-    $display("Failed: 10, y= %b",y);
+        // test vector
+        n = 4'b0000;
+        sel = 2'b00;
+        #5;
+        if (y !== n[sel]) begin
+            $display("FAIL: n=%b sel=%b expected=%b got=%b",
+                     n, sel, n[sel], y);
+            fail_count = fail_count + 1;
+        end
+        else begin
+            $display("PASS: n=%b sel=%b y=%b", n, sel, y);
+            pass_count = pass_count + 1;
+        end
 
-    else $display("Passed: 01, y=%b",y);
-s1=1; s0=1; #10;
-if(y!==n3)
-    $display("Failed: 11, y= %b",y);
+        n = 4'b0001;
+        sel = 2'b01;
+        #5;
+        if (y !== n[sel]) begin
+            $display("FAIL: n=%b sel=%b expected=%b got=%b",
+                     n, sel, n[sel], y);
+            fail_count = fail_count + 1;
+        end
+        else begin
+            $display("PASS: n=%b sel=%b y=%b", n, sel, y);
+            pass_count = pass_count + 1;
+        end
 
-    else $display("Passed: 11, y=%b",y);
+        n = 4'b0010;
+        sel = 2'b10;
+        #5;
+        if (y !== n[sel]) begin
+            $display("FAIL: n=%b sel=%b expected=%b got=%b",
+                     n, sel, n[sel], y);
+            fail_count = fail_count + 1;
+        end
+        else begin
+            $display("PASS: n=%b sel=%b y=%b", n, sel, y);
+            pass_count = pass_count + 1;
+        end
 
+        n = 4'b0011;
+        sel = 2'b11;
+        #5;
+        if (y !== n[sel]) begin
+            $display("FAIL: n=%b sel=%b expected=%b got=%b",
+                     n, sel, n[sel], y);
+            fail_count = fail_count + 1;
+        end
+        else begin
+            $display("PASS: n=%b sel=%b y=%b", n, sel, y);
+            pass_count = pass_count + 1;
+        end
 
-$finish;
-end
+        n = 4'b0100;
+        sel = 2'b00;
+        #5;
+        if (y !== n[sel]) begin
+            $display("FAIL: n=%b sel=%b expected=%b got=%b",
+                     n, sel, n[sel], y);
+            fail_count = fail_count + 1;
+        end
+        else begin
+            $display("PASS: n=%b sel=%b y=%b", n, sel, y);
+            pass_count = pass_count + 1;
+        end
 
+        n = 4'b0101;
+        sel = 2'b01;
+        #5;
+        if (y !== n[sel]) begin
+            $display("FAIL: n=%b sel=%b expected=%b got=%b",
+                     n, sel, n[sel], y);
+            fail_count = fail_count + 1;
+        end
+        else begin
+            $display("PASS: n=%b sel=%b y=%b", n, sel, y);
+            pass_count = pass_count + 1;
+        end
+
+        n = 4'b0110;
+        sel = 2'b10;
+        #5;
+        if (y !== n[sel]) begin
+            $display("FAIL: n=%b sel=%b expected=%b got=%b",
+                     n, sel, n[sel], y);
+            fail_count = fail_count + 1;
+        end
+        else begin
+            $display("PASS: n=%b sel=%b y=%b", n, sel, y);
+                     n, sel, n[sel], y);
+            fail_count = fail_count + 1;
+        end
+        else begin
+            $display("PASS: n=%b sel=%b y=%b", n, sel, y);
+            pass_count = pass_count + 1;
+        end
+
+        n = 4'b1000;
+        sel = 2'b00;
+        #5;
+        if (y !== n[sel]) begin
+            $display("FAIL: n=%b sel=%b expected=%b got=%b",
+                     n, sel, n[sel], y);
+            fail_count = fail_count + 1;
+        end
+        else begin
+            $display("PASS: n=%b sel=%b y=%b", n, sel, y);
+            pass_count = pass_count + 1;
+        end
+
+        n = 4'b1001;
+        sel = 2'b01;
+        #5;
+        if (y !== n[sel]) begin
+            $display("FAIL: n=%b sel=%b expected=%b got=%b",
+                     n, sel, n[sel], y);
+            fail_count = fail_count + 1;
+        end
+        else begin
+            $display("PASS: n=%b sel=%b y=%b", n, sel, y);
+            pass_count = pass_count + 1;
+        end
+
+        n = 4'b1010;
+        sel = 2'b10;
+        #5;
+        if (y !== n[sel]) begin
+            $display("FAIL: n=%b sel=%b expected=%b got=%b",
+                     n, sel, n[sel], y);
+            fail_count = fail_count + 1;
+        end
+        else begin
+            $display("PASS: n=%b sel=%b y=%b", n, sel, y);
+            pass_count = pass_count + 1;
+        end
+
+        n = 4'b1100;
+        sel = 2'b11;
+        #5;
+        if (y !== n[sel]) begin
+            $display("FAIL: n=%b sel=%b expected=%b got=%b",
+                     n, sel, n[sel], y);
+            fail_count = fail_count + 1;
+        end
+        else begin
+            $display("PASS: n=%b sel=%b y=%b", n, sel, y);
+            pass_count = pass_count + 1;
+        end
+
+        n = 4'b1101;
+        sel = 2'b00;
+        #5;
+        if (y !== n[sel]) begin
+            $display("FAIL: n=%b sel=%b expected=%b got=%b",
+                     n, sel, n[sel], y);
+            fail_count = fail_count + 1;
+        end
+        else begin
+            $display("PASS: n=%b sel=%b y=%b", n, sel, y);
+            pass_count = pass_count + 1;
+        end
+
+        n = 4'b1111;
+        sel = 2'b10;
+        #5;
+        if (y !== n[sel]) begin
+            $display("FAIL: n=%b sel=%b expected=%b got=%b",
+                     n, sel, n[sel], y);
+            fail_count = fail_count + 1;
+        end
+        else begin
+            $display("PASS: n=%b sel=%b y=%b", n, sel, y);
+            pass_count = pass_count + 1;
+        end
+
+        $display("PASS: %0d", pass_count);
+        $display("FAIL: %0d", fail_count);
+     
+
+        $finish;
+    end
 
 endmodule
-
