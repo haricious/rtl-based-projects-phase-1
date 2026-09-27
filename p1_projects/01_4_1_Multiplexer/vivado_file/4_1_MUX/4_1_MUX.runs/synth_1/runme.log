@@ -12,3 +12,7 @@
     ** Copyright 2022-2025 Advanced Micro Devices, Inc. All Rights Reserved.
 
 source mux_4x1.tcl -notrace
+Command: synth_design -top mux_4x1 -part xc7s100fgga676-2
+Starting synth_design
+Attempting to get a license for feature 'Synthesis' and/or device 'xc7s100'
+INFO: [Common 17-349] Got license for feature 'Synthesis' and/or device 'xc7s100'
