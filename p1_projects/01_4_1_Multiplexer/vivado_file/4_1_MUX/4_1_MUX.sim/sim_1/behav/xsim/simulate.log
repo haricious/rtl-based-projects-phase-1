@@ -1,7 +1,0 @@
-Time resolution is 1 ps
-Passed: 00, y=0
-Passed: 00, y=1
-Passed: 00, y=1
-Passed: 00, y=0
-$finish called at time : 40 ns : File "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/01_4_1_Multiplexer/vivado_file/4_1_MUX/4_1_MUX.srcs/sim_1/new/tb_mux4x1.v" Line 42
-INFO: xsimkernel Simulation Memory Usage: 499068 KB (Peak: 556600 KB), Simulation CPU Usage: 1480 ms
