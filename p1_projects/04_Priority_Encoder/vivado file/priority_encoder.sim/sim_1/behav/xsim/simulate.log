@@ -1,0 +1,18 @@
+Time resolution is 1 ps
+PASS: D=0000,actual Y=00, actual V=0, expected Y=00, expected V=0
+PASS: D=0001,actual Y=00, actual V=1, expected Y=00, expected V=1
+PASS: D=0010,actual Y=01, actual V=1, expected Y=01, expected V=1
+PASS: D=0011,actual Y=01, actual V=1, expected Y=01, expected V=1
+FAILED: D=0100,actual Y=10, actual V=1, expected Y=11, expected V=1
+FAILED: D=0101,actual Y=10, actual V=1, expected Y=11, expected V=1
+FAILED: D=0110,actual Y=10, actual V=1, expected Y=11, expected V=1
+FAILED: D=0111,actual Y=10, actual V=1, expected Y=11, expected V=1
+PASS: D=1000, actual Y=11, actual V=1, expected Y=11, expected V=1
+PASS: D=1001, actual Y=11, actual V=1, expected Y=11, expected V=1
+PASS: D=1010, actual Y=11, actual V=1, expected Y=11, expected V=1
+PASS: D=1011, actual Y=11, actual V=1, expected Y=11, expected V=1
+PASS: D=1100, actual Y=11, actual V=1, expected Y=11, expected V=1
+PASS: D=1101, actual Y=11, actual V=1, expected Y=11, expected V=1
+PASS: D=1110, actual Y=11, actual V=1, expected Y=11, expected V=1
+PASS: D=1111, actual Y=11, actual V=1, expected Y=11, expected V=1
+$finish called at time : 80 ns : File "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/04_Priority_Encoder/vivado file/priority_encoder.srcs/sim_1/new/tb_priority_encoder.v" Line 64
