@@ -1,6 +1,6 @@
 `timescale 1ns / 1ps
 
-module 3x8decoder(
+module decoder3x8(
 
     );
 endmodule
