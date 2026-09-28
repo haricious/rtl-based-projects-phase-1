@@ -19,11 +19,13 @@ module priority_encoder(
 );
 
 always@(*) begin
-case(D)
+casez(D)
+4'b1???: Y=2'b11; V=1'b1;
+4'b01??: Y=2'b10; V=1'b1;
+4'b001?: Y=2'b01; V=1'b1;
 4'b0001: Y=2'b01; V=1'b1;
-4'b0010: Y=2'b01; V=1'b1;
-4'b0100: Y=2'b10; V=1'b1;
-4'b1000: Y=2'b11; V=1'b1;
+
+
 
 default: Y=2'b00;V=1'b0 ;
 
@@ -43,14 +45,11 @@ module priority_encoder(
 
 always@(*) begin
 
-if(D==4'b0001)
-    Y=2'b01; V=1'b1;
-else if(4'b0010)
-    Y=2'b01; V=1'b1;
-else if(4'b0100) 
-    Y=2'b10; V=1'b1;
-else if(4'b1000) 
-    Y=2'b11; V=1'b1;
+if(D[3]) Y=2'b11; V=1'b1;
+else if(D[2]) Y=2'b10; V=1'b1;
+else if(D[1]) Y=2'b01; V=1'b1;
+else if(D[0]) Y=2'b00; V=1'b1;
+
 else
     Y=2'b00; V=1'b0
 
