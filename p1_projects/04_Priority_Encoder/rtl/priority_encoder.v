@@ -1,8 +1,8 @@
 // 4:2 Priority encoder using boolean/dataflow
 module priority_encoder(
     input [3:0]D,
-    output reg [1:0]Y,
-    output reg V
+    output [1:0]Y,
+    output  V
 );
 
 assign Y[0] = D[3]|~D[2]&D[1];
