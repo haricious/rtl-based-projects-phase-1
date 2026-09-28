@@ -59,6 +59,7 @@ for(i=0;i<16;i=i+1) begin
         else
             $display("PASS: actual Y=%b, actual V=%b, expected Y=%b, expected V=%b",Y,V,expected_Y, expected_V);
     end   
+end
 
 $finish;
 
