@@ -1,0 +1,4 @@
+
+*** Running vivado
+    with args -log decoder3x8.vds -m64 -product Vivado -mode batch -messageDb vivado.pb -notrace -source decoder3x8.tcl
+
