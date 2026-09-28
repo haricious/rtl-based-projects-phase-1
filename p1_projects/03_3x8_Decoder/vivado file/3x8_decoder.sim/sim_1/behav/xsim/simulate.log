@@ -8,3 +8,4 @@ FAILED: actual value of Y=00101000, expected value of Y =00100000, since X=101
 PASSED: actual value of Y=01000000, expected value of Y =01000000, since X=110
 PASSED: actual value of Y=10000000, expected value of Y =10000000, since X=111
 $finish called at time : 40 ns : File "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/03_3x8_Decoder/vivado file/3x8_decoder.srcs/sim_1/new/tb_3x8_decoder.v" Line 27
+INFO: xsimkernel Simulation Memory Usage: 499060 KB (Peak: 556592 KB), Simulation CPU Usage: 1470 ms
