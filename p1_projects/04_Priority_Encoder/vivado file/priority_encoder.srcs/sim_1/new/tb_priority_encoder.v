@@ -28,7 +28,7 @@ for(i=0;i<16;i=i+1) begin
             $display("PASS: D=%b, actual Y=%b, actual V=%b, expected Y=%b, expected V=%b",D,Y,V,expected_Y, expected_V);    
     end
     else if (D[2]) begin
-        expected_Y = 2'b10;
+        expected_Y = 2'b11;
         expected_V = 1'b1;
         if(Y !==expected_Y || V !==expected_V)
             $display("FAILED: D=%b,actual Y=%b, actual V=%b, expected Y=%b, expected V=%b",D,Y,V,expected_Y, expected_V);
