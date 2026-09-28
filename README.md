@@ -10,13 +10,13 @@ The aim is to understand what each piece of RTL describes and how it behaves in 
 
 | Metric | Value |
 |---|---|
-| Projects complete | 3 / 10 (30%) |
-| RTL designs | 3 |
-| Testbenches | 3 (all self-checking) |
+| Projects complete | 4 / 10 (40%) |
+| RTL designs | 4 |
+| Testbenches | 4 (all self-checking) |
 | Regression | All passing |
-| Fault injection | Applied to projects 02 and 03 |
+| Fault injection | Applied to projects 02, 03, and 04 |
 | Synthesis inspection | Applied to project 03 |
-| Current project | 04: Priority Encoder |
+| Current project | 05: Flip-Flop Register File |
 
 ---
 
@@ -47,8 +47,8 @@ Combinational logic comes first, followed by sequential and control designs. A p
 | 01 | 4:1 Multiplexer | Datapath routing | Complete |
 | 02 | 8:1 Multiplexer | Hierarchical routing | Complete |
 | 03 | 3:8 Decoder | Address and control selection | Complete |
-| 04 | Priority Encoder | Arbitration | Next |
-| 05 | Flip-Flop Register File | Storage | Planned |
+| 04 | Priority Encoder | Arbitration | Complete |
+| 05 | Flip-Flop Register File | Storage | Next |
 | 06 | 4-bit Binary Counter | Sequencing and timing | Planned |
 | 07 | Traffic Light Controller | Finite state machines | Planned |
 | 08 | Sequence Detector | Pattern recognition | Planned |
@@ -84,10 +84,10 @@ Built from 4 three-input AND gates, 1 four-input OR gate, and 2 inverters.
 
 ```text
 sel[1:0] -----> 4:1 MUX --+
-                          +--> 2:1 MUX --> y
+                           +--> 2:1 MUX --> y
 sel[1:0] -----> 4:1 MUX --+        ^
-                                   |
-                                sel[2]
+                                  |
+                               sel[2]
 ```
 
 **Debug finding.** The testbench failed on the first run because of a wiring error in the final 2:1 selection stage. The failing cases were traced to that stage, the connection was corrected, and the regression passed 8/8.
@@ -132,6 +132,59 @@ expected = 8'b00000001 << x;
 
 ---
 
+### 04: Priority Encoder
+
+| Item | Detail |
+|---|---|
+| Implementation | Boolean/dataflow, `if-else`, and behavioral `casez` versions |
+| Verification | Self-checking testbench |
+| Coverage | All 16 input combinations |
+| Fault injection | Completed |
+| Regression | 16/16 pass, 0 fail |
+
+A 4-input priority encoder accepts `D[3:0]` with priority:
+
+```text
+D3 > D2 > D1 > D0
+```
+
+The highest-priority asserted input determines the binary output:
+
+| Winning input | `Y` | `V` |
+|:---:|:---:|:---:|
+| D3 | 11 | 1 |
+| D2 | 10 | 1 |
+| D1 | 01 | 1 |
+| D0 | 00 | 1 |
+| none | 00 | 0 |
+
+Boolean/dataflow equations:
+
+```text
+Y[1] = D[3] | D[2]
+Y[0] = D[3] | (~D[2] & D[1])
+V    = D[3] | D[2] | D[1] | D[0]
+```
+
+The `if-else` implementation expresses priority directly by checking `D[3]`, then `D[2]`, then `D[1]`, then `D[0]`.
+
+The `casez` implementation expresses the same priority using wildcard patterns:
+
+```text
+1???  → D3 → 11
+01??  → D2 → 10
+001?  → D1 → 01
+0001  → D0 → 00
+```
+
+`V` distinguishes the `0000` case from the valid `D0` result, since both produce `Y=00`.
+
+**Verification.** The testbench exhaustively applied all 16 possible input combinations and independently generated expected results from the priority rule.
+
+**Fault injection.** A deliberate DUT mutation was applied and the self-checking testbench detected the resulting mismatches. The corrected DUT returned to a 16/16 passing regression.
+
+---
+
 ## Workflow
 
 Each project follows the same sequence:
@@ -166,7 +219,7 @@ Compiling is not treated as completion. A design is complete when it has been ex
 
 ## Next
 
-**Project 04: Priority Encoder.** Before writing RTL, work out the plain encoder and then the priority behavior: which input wins when several are asserted, and how the design signals that no input is active.
+**Project 05: Flip-Flop Register File.** The next design moves from purely combinational logic into sequential storage. The focus will be on registers, clocked state, write enable, read selection, and how an array of flip-flops becomes a register file.
 
 ---
 
@@ -175,7 +228,7 @@ Compiling is not treated as completion. A design is complete when it has been ex
 - [x] 01: 4:1 Multiplexer
 - [x] 02: 8:1 Multiplexer
 - [x] 03: 3:8 Decoder
-- [ ] 04: Priority Encoder
+- [x] 04: Priority Encoder
 - [ ] 05: Flip-Flop Register File
 - [ ] 06: 4-bit Binary Counter
 - [ ] 07: Traffic Light Controller
@@ -183,4 +236,4 @@ Compiling is not treated as completion. A design is complete when it has been ex
 - [ ] 09: Parity Generator and Checker
 - [ ] 10: PWM Controller
 
-**Phase 01: 30% complete (3 of 10).**
+**Phase 01: 40% complete (4 of 10).**
