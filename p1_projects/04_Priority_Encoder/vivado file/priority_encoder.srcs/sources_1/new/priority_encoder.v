@@ -10,12 +10,12 @@ module priority_encoder(
 always@(*) begin
 
 if(D[3]) Y=2'b11; V=1'b1;
-else if(D[2]) Y=2'b10; V=1'b1;
-else if(D[1]) Y=2'b01; V=1'b1;
-else if(D[0]) Y=2'b00; V=1'b1;
+else if (D[2]) Y=2'b10; V=1'b1;
+else if (D[1]) Y=2'b01; V=1'b1;
+else if (D[0]) Y=2'b00; V=1'b1;
 
 else
-    Y=2'b00; V=1'b0
+    Y=2'b00; V=1'b0;
 
 end
 
