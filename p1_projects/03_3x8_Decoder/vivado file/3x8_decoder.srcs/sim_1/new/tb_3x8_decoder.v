@@ -22,7 +22,7 @@ expected = 8'b00000001 << x;
 if(y!==expected)
     $display("FAILED: actual value of Y=%b, expected value of Y =%b, since X=%b", y,expected,x);
 else
-    $display("PASSED: Y= %b", y);
+    $display("PASSED: actual value of Y=%b, expected value of Y =%b, since X=%b", y,expected,x);
 
 end
 $finish;
