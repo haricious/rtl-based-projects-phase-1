@@ -96,3 +96,87 @@ Start Final Netlist Cleanup
 ---------------------------------------------------------------------------------
 Finished Final Netlist Cleanup
 ---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished IO Insertion : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2649.016 ; gain = 814.898 ; free physical = 178 ; free virtual = 14491
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Instances
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Instances : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2649.016 ; gain = 814.898 ; free physical = 178 ; free virtual = 14491
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Rebuilding User Hierarchy
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Rebuilding User Hierarchy : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2649.016 ; gain = 814.898 ; free physical = 178 ; free virtual = 14491
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Ports
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Ports : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2649.016 ; gain = 814.898 ; free physical = 178 ; free virtual = 14491
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Handling Custom Attributes
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Handling Custom Attributes : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2649.016 ; gain = 814.898 ; free physical = 178 ; free virtual = 14491
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Renaming Generated Nets
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Finished Renaming Generated Nets : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2649.016 ; gain = 814.898 ; free physical = 178 ; free virtual = 14491
+---------------------------------------------------------------------------------
+---------------------------------------------------------------------------------
+Start Writing Synthesis Report
+---------------------------------------------------------------------------------
+
+Report BlackBoxes: 
++-+--------------+----------+
+| |BlackBox name |Instances |
++-+--------------+----------+
++-+--------------+----------+
+
+Report Cell Usage: 
++------+-----+------+
+|      |Cell |Count |
++------+-----+------+
+|1     |LUT3 |     8|
+|2     |IBUF |     3|
+|3     |OBUF |     8|
++------+-----+------+
+
+Report Instance Areas: 
++------+---------+-------+------+
+|      |Instance |Module |Cells |
++------+---------+-------+------+
+|1     |top      |       |    19|
++------+---------+-------+------+
+---------------------------------------------------------------------------------
+Finished Writing Synthesis Report : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2649.016 ; gain = 814.898 ; free physical = 178 ; free virtual = 14491
+---------------------------------------------------------------------------------
+Synthesis finished with 0 errors, 0 critical warnings and 0 warnings.
+Synthesis Optimization Runtime : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2649.016 ; gain = 814.898 ; free physical = 178 ; free virtual = 14491
+Synthesis Optimization Complete : Time (s): cpu = 00:00:15 ; elapsed = 00:00:15 . Memory (MB): peak = 2649.023 ; gain = 814.898 ; free physical = 178 ; free virtual = 14491
+INFO: [Project 1-571] Translating synthesized netlist
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2662.891 ; gain = 0.000 ; free physical = 189 ; free virtual = 14487
+INFO: [Project 1-570] Preparing netlist for logic optimization
+INFO: [Opt 31-138] Pushed 0 inverter(s) to 0 load pin(s).
+Netlist sorting complete. Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2805.441 ; gain = 0.000 ; free physical = 194 ; free virtual = 14512
+INFO: [Project 1-111] Unisim Transformation Summary:
+No Unisim elements were transformed.
+
+sh: line 1: /home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/03_3x8_Decoder/vivado: Is a directory
+Synth Design complete | Checksum: 35bed78f
+INFO: [Common 17-83] Releasing license: Synthesis
+13 Infos, 0 Warnings, 0 Critical Warnings and 0 Errors encountered.
+synth_design completed successfully
+synth_design: Time (s): cpu = 00:00:22 ; elapsed = 00:00:19 . Memory (MB): peak = 2805.477 ; gain = 971.359 ; free physical = 196 ; free virtual = 14515
+INFO: [Common 17-2834] synth_design peak Physical Memory [PSS] (MB): overall = 1748.952; main = 1748.952; forked = 280.914
+INFO: [Common 17-2834] synth_design peak Virtual Memory [VSS] (MB): overall = 4004.234; main = 2805.445; forked = 1633.910
+Write ShapeDB Complete: Time (s): cpu = 00:00:00 ; elapsed = 00:00:00 . Memory (MB): peak = 2829.453 ; gain = 0.000 ; free physical = 196 ; free virtual = 14515
+INFO: [Common 17-1381] The checkpoint '/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/03_3x8_Decoder/vivado file/3x8decoder.runs/synth_1/decoder3x8.dcp' has been generated.
+INFO: [Vivado 12-24828] Executing command : report_utilization -file decoder3x8_utilization_synth.rpt -pb decoder3x8_utilization_synth.pb
+INFO: [Common 17-206] Exiting Vivado at Mon Sep 28 21:27:09 2026...
