@@ -16,3 +16,4 @@ PASS: D=1101, actual Y=11, actual V=1, expected Y=11, expected V=1
 PASS: D=1110, actual Y=11, actual V=1, expected Y=11, expected V=1
 PASS: D=1111, actual Y=11, actual V=1, expected Y=11, expected V=1
 $finish called at time : 80 ns : File "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/04_Priority_Encoder/vivado file/priority_encoder.srcs/sim_1/new/tb_priority_encoder.v" Line 64
+INFO: xsimkernel Simulation Memory Usage: 499060 KB (Peak: 556592 KB), Simulation CPU Usage: 1440 ms
