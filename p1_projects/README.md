@@ -36,3 +36,7 @@ A deliberate bug was introduced into the 4:1 multiplexer select
 mapping. The self-checking testbench detected the resulting failures.
 The root cause was identified and corrected, followed by a final
 regression with 8/8 tests passing.
+
+# PROJECT 3 - 3:8 DECODER
+
+A 3:8 decoder is a combinational one-hot circuit that converts a 3-bit binary input into 8 output signals. The 3-bit input determines which output line is activated. For every valid input combination, exactly one of the 8 outputs is HIGH while the remaining outputs are LOW. The input therefore acts as a code that identifies one specific output line. Decoders are used in applications such as register selection and address decoding, where a particular hardware block or location needs to be selected.
