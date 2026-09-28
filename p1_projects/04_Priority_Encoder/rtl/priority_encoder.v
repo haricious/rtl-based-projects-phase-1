@@ -6,6 +6,7 @@ module priority_encoder(
 );
 
 assign Y[0] = D[3]|~D[2]&D[1];
+assign Y[1] = D[3]|D[2];
 assign V = D[3]|D[2]|D[1]|D0;
 
 
@@ -18,7 +19,7 @@ module priority_encoder(
 );
 
 always@(*) begin
-case(D);
+case(D)
 4'b0001: Y=2'b01; V=1'b1;
 4'b0010: Y=2'b01; V=1'b1;
 4'b0100: Y=2'b10; V=1'b1;
