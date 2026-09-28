@@ -2,5 +2,3 @@ INFO: [VRFC 10-2263] Analyzing Verilog file "/home/haricious/haricious/RTL/rtl-b
 INFO: [VRFC 10-311] analyzing module decoder3x8
 INFO: [VRFC 10-2263] Analyzing Verilog file "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/03_3x8_Decoder/vivado file/3x8_decoder.srcs/sim_1/new/tb_3x8_decoder.v" into library xil_defaultlib
 INFO: [VRFC 10-311] analyzing module tb_3x8decoder
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/03_3x8_Decoder/vivado file/3x8_decoder.sim/sim_1/behav/xsim/glbl.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module glbl
