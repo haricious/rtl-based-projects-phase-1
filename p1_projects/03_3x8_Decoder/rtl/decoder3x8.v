@@ -1,4 +1,3 @@
-
 `timescale 1ns / 1ps
 // decoder using boolean expressions
 
