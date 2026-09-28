@@ -1,3 +1,4 @@
+```markdown
 # ⚡ silicon : phase_01
 
 > build the fundamentals.  
@@ -17,16 +18,17 @@ The objective is to understand what the RTL describes, what hardware synthesis p
 ```text
 SYSTEM STATUS
 
-projects completed   : 2 / 10
-rtl designs          : 2
-testbenches          : 2
-self-checking TBs    : 2
+projects completed   : 3 / 10
+rtl designs          : 3
+testbenches          : 3
+self-checking TBs    : 3
 
 mutation testing     : practiced
 debugging            : practiced
+synthesis inspection : practiced
 regressions          : passing
 
-phase progress       : 20%
+phase progress       : 30%
 ```
 
 ---
@@ -56,8 +58,8 @@ Complexity increases only after the underlying structure is understood.
 |----|---------|---------|--------|
 | 01 | 4:1 Multiplexer | Data Routing | 🟢 Done |
 | 02 | 8:1 Multiplexer | Hierarchical Data Routing | 🟢 Done |
-| 03 | 3:8 Decoder | Address Selection | 🟡 Next |
-| 04 | Priority Encoder | Input Arbitration | 🟡 Planned |
+| 03 | 3:8 Decoder | Address Selection | 🟢 Done |
+| 04 | Priority Encoder | Input Arbitration | 🟡 Next |
 | 05 | Flip-Flop Based Register File | Storage Architecture | 🟡 Planned |
 | 06 | 4-bit Binary Counter | Sequential Design | 🟡 Planned |
 | 07 | Traffic Light Controller | FSM Design | 🟡 Planned |
@@ -141,6 +143,85 @@ A deliberate indexing fault was also injected into the 4:1 MUX and detected by t
 
 ---
 
+## 03 // 3:8 Decoder
+
+```text
+implementation     : Boolean/dataflow + behavioral case RTL
+verification       : self-checking testbench
+coverage           : all 8 input combinations
+mutation testing   : completed
+debugging          : completed
+regression         : 8/8 PASS
+synthesis           : inspected
+status             : COMPLETE
+```
+
+Core behavior:
+
+```text
+3-bit binary input
+        ↓
+    3:8 decoder
+        ↓
+8-bit one-hot output
+```
+
+Truth mapping:
+
+```text
+000 → 0000_0001
+001 → 0000_0010
+010 → 0000_0100
+011 → 0000_1000
+100 → 0001_0000
+101 → 0010_0000
+110 → 0100_0000
+111 → 1000_0000
+```
+
+The decoder was implemented using Boolean minterms and then reimplemented using a `case` statement.
+
+The self-checking testbench used:
+
+```verilog
+expected = 8'b00000001 << x;
+```
+
+as the reference model.
+
+An intentional functional mutation produced verification failures and exposed multiple active output bits. The RTL was restored and the final regression returned:
+
+```text
+8/8 PASS
+0 FAIL
+```
+
+### synthesized hardware
+
+Vivado mapped the case-based decoder to:
+
+```text
+3 input signals
+      ↓
+8 × LUT3
+      ↓
+8 output signals
+```
+
+The synthesis result demonstrated the distinction between:
+
+```text
+RTL description
+      ↓
+Boolean function
+      ↓
+FPGA technology mapping
+```
+
+No flip-flops or storage elements were inferred.
+
+---
+
 # execution model
 
 Every project follows the same sequence.
@@ -166,6 +247,8 @@ debug
       ↓
 regression
       ↓
+synthesis inspection
+      ↓
 documentation
       ↓
 complete
@@ -173,7 +256,7 @@ complete
 
 A project is not complete because it compiles.
 
-A project is complete when the implementation has been exercised, checked, deliberately challenged, debugged where necessary, and documented.
+A project is complete when the implementation has been exercised, checked, deliberately challenged, debugged where necessary, inspected at the hardware level, and documented.
 
 ---
 
@@ -182,11 +265,11 @@ A project is complete when the implementation has been exercised, checked, delib
 ```text
 phase_01
 
-[██□□□□□□□□]
+[███□□□□□□□]
 
-20%
+30%
 
-2 / 10 complete
+3 / 10 complete
 ```
 
 ---
@@ -252,12 +335,14 @@ break before declaring complete
 
 debug from evidence
 
+inspect what synthesis actually built
+
 document what was actually learned
 ```
 
 No project is treated as finished because the waveform happens to look right.
 
-The implementation should be explainable from the specification down to the observed behavior.
+The implementation should be explainable from the specification down to the observed behavior and, where applicable, the synthesized hardware.
 
 ---
 
@@ -266,14 +351,15 @@ The implementation should be explainable from the specification down to the obse
 ```text
 PROJECT PHASE      : ACTIVE
 
-PROJECTS COMPLETE  : 2 / 10
+PROJECTS COMPLETE  : 3 / 10
 
-CURRENT PROJECT    : PROJECT_03
-TARGET             : 3:8 DECODER
+CURRENT PROJECT    : PROJECT_04
+TARGET             : PRIORITY ENCODER
 
-LAST COMPLETED     : 8:1 MUX
+LAST COMPLETED     : 3:8 DECODER
 
-NEXT ACTION        : DERIVE THE DECODER
+NEXT ACTION        : UNDERSTAND ENCODER
+                     AND PRIORITY LOGIC
                      BEFORE WRITING RTL
 ```
 
@@ -284,7 +370,7 @@ NEXT ACTION        : DERIVE THE DECODER
 ```text
 [✓] 4:1 MUX
 [✓] 8:1 MUX
-[ ] 3:8 Decoder
+[✓] 3:8 Decoder
 [ ] Priority Encoder
 [ ] Flip-Flop Register File
 [ ] 4-bit Binary Counter
@@ -295,8 +381,8 @@ NEXT ACTION        : DERIVE THE DECODER
 ```
 
 ```text
-PHASE_01 : 20%
+PHASE_01 : 30%
 
-NEXT : 3:8 DECODER
+NEXT : PRIORITY ENCODER
 ```
-"""
+```
