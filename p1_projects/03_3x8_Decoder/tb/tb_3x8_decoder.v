@@ -8,13 +8,12 @@ module tb_3x8decoder();
 reg [2:0]x;
 reg [7:0]expected;
 wire [7:0]y;
-
+integer i;
 // module instantiation
 decoder3x8 dut(x,y);
 
 // testing values and logic
 initial begin
-integer i;
 
 for(i=0; i<8;i=i+1) begin
 x=i; #5;
