@@ -1,0 +1,4 @@
+Time resolution is 1 ps
+DEBUG: we=1 write_addr=010 write_data=10101010 R2=10101010
+DEBUG: read_addr=010 read_data=10101010
+$finish called at time : 17 ns : File "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/05_Register_FIle/vivado_file/register_file.srcs/sim_1/new/tb_register_file.v" Line 47
