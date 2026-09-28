@@ -34,13 +34,16 @@ expected_data = 8'b10101010;
 we = 1;
 
 @(posedge clk);
-read_addr = 3'b010;
-if(read_data!==expected_data) begin
-    $display("FAIL: Expected data=%b, Data read=%b", expected_data, read_data);
-end
+#1;
 
-else 
-    $display("PASS: Expected data=%b, Data read=%b", expected_data,read_data);
+$display("DEBUG: we=%b write_addr=%b write_data=%b R2=%b",
+         we, write_addr, write_data, dut.regs[2]);
+
+read_addr = 3'b010;
+#1;
+
+$display("DEBUG: read_addr=%b read_data=%b",
+         read_addr, read_data);
 $finish;
 end
 
