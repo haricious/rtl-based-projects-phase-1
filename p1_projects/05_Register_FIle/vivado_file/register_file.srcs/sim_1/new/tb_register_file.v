@@ -114,7 +114,7 @@ module tb_register_file();
                  expected_data, read_data);
     end
     else begin
-        $display("R3:PASS: Expected data=%b, Data read=%b",
+        $display("R3: PASS: Expected data=%b, Data read=%b",
                  expected_data, read_data);
     end
 
@@ -134,7 +134,7 @@ module tb_register_file();
                  expected_data, read_data);
     end
     else begin
-        $display("R4:PASS: Expected data=%b, Data read=%b",
+        $display("R4: PASS: Expected data=%b, Data read=%b",
                  expected_data, read_data);
     end
 
