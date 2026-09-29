@@ -27,6 +27,7 @@ module tb_parity_check();
             expected_syndrome = ^rx_data ^ rx_parity;
 
             #1;
+            
 
             if(syndrome !== expected_syndrome) begin
                 $display(
