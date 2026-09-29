@@ -259,11 +259,7 @@ module tb_register_file();
         #1;
 
         // asynch read
-    $finish;
-    end 
-
-endmodule
-       read_addr=i;
+        read_addr=i;
         expected_data=write_data;
         #1;
         if (read_data !== expected_data) begin
@@ -285,7 +281,6 @@ endmodule
 
 // address isolation.
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
 
 module tb_register_file();
 
@@ -322,7 +317,7 @@ module tb_register_file();
         write_addr = 0;
         read_addr = 0;
         write_data = 0;
-        expected_data = 0;
+        expected_regs = 0;
         rst=0;
 
         #10;
@@ -337,9 +332,20 @@ module tb_register_file();
         #1;
 
         // asynch read
+        read_addr=i;
+        expected_regs[i]=write_data;
+        #1;
+        if (read_data !== expected_data) begin
+        $display("R%d: FAIL: Expected data=%b, Data read=%b", i,expected_data, read_data);
+        end
+        else begin
+        $display("R%d: PASS: Expected data=%b, Data read=%b", i,expected_data, read_data);
+        end
+
+    end
+
+
     $finish;
     end 
 
 endmodule
-
-
