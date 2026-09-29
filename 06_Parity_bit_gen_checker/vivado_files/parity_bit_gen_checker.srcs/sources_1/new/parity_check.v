@@ -1,4 +1,4 @@
-`timescale 1ns/ps
+`timescale 1ns/1ps
 
 module parity_check(
     input [7:0]rx_data, 
