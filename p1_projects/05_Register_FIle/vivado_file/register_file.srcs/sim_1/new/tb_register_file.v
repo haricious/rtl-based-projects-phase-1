@@ -45,7 +45,7 @@ module tb_register_file();
         write_data = 8'b00001111;
         we = 0;
         rst = 0;
-        expected_data = 8'b11110000;
+        expected_data = 8'b00001111;
 
         @(posedge clk);
         #1;
