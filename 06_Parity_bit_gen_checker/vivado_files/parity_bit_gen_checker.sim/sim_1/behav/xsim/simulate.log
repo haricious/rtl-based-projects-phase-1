@@ -512,3 +512,4 @@ PASS: rx_data=11111101, rx_parity=1, syndrome=0
 PASS: rx_data=11111110, rx_parity=1, syndrome=0
 PASS: rx_data=11111111, rx_parity=1, syndrome=1
 $finish called at time : 522 ns : File "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/06_Parity_bit_gen_checker/vivado_files/parity_bit_gen_checker.srcs/sim_1/new/tb_parity_check.v" Line 47
+INFO: xsimkernel Simulation Memory Usage: 499060 KB (Peak: 556592 KB), Simulation CPU Usage: 2030 ms
