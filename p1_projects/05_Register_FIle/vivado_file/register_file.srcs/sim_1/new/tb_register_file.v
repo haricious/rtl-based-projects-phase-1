@@ -41,10 +41,10 @@ module tb_register_file();
         #10;
 
         // testing write
-        write_addr = 3'b010;
-        write_data = 8'b00001111;
-        we = 0;
         rst = 0;
+        we = 1;
+        write_addr = 3'b010;
+        write_data = 8'b11110000;
         expected_data = 8'b11110000;
 
         @(posedge clk);
