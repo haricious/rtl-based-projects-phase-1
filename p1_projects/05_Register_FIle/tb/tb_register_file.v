@@ -40,6 +40,45 @@ module tb_register_file();
 
         #10;
     #1;
+    // writing R0
+    rst=1'b0;
+    we=1'b1;
+    write_addr = 3'b000;
+    write_data=$random & 8'hFF;
+
+    @(posedge clk);
+    #1;
+    read_addr = 3'b000;
+    expected_data=write_data;
+    #1;
+    if (read_data !== expected_data) begin
+        $display("R0: FAIL: Expected data=%b, Data read=%b",
+                 expected_data, read_data);
+    end
+    else begin
+        $display("R0: PASS: Expected data=%b, Data read=%b",
+                 expected_data, read_data);
+    end
+
+    //writing R1
+    rst=1'b0;
+    we=1'b1;
+    write_addr = 3'b001
+    write_data=$random & 8'hFF;
+    
+    @(posedge clk);
+    read_addr = 3'b001;
+    expected_data=write_data;
+    #1;
+    if (read_data !== expected_data) begin
+        $display("R1: FAIL: Expected data=%b, Data read=%b",
+                 expected_data, read_data);
+    end
+    else begin
+        $display("R1: PASS: Expected data=%b, Data read=%b",
+                 expected_data, read_data);
+    end
+    #1;
     // writing R2
     rst=1'b0;
     we = 1'b1;
@@ -59,7 +98,10 @@ module tb_register_file();
         $display("PASS: Expected data=%b, Data read=%b",
                  expected_data, read_data);
     end
-    
+    //writing R3
+
+    // writing R4
+
     //writing R5
     rst=1'b0;
     we = 1'b1;
@@ -79,6 +121,10 @@ module tb_register_file();
                  expected_data, read_data);
     end
     #1;
+
+    // Writing R6
+
+    // Writing R7
     
     
             $finish;
