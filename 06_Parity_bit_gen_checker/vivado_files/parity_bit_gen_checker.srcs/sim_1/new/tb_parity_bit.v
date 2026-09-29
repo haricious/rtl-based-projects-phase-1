@@ -1,5 +1,5 @@
-// testcase to check 8bit parity generator
 `timescale 1ns /1ps
+
 module tb_parity_gen_check();
 
 reg [7:0]data;
