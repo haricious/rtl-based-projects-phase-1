@@ -23,10 +23,37 @@ else
     state<=nstate;
 end
 
-// next state logic 
+// next state logic + output logic
+
+always@(posedge clk) begin
+
+case(state)
+
+s0: begin
+    if(din==0) begin
+        state <= s0;
+        dout <=1'b0;
+    end
+    else begin
+        state<=s1;
+        dout<=1'b0;
+    end
 
 
-// output logic
+end
+
+
+
+
+
+default: ;
+endcase
+
+
+end
+
+
+
 
 
 
