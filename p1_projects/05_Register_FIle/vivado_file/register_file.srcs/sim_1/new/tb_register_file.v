@@ -11,7 +11,7 @@ module tb_register_file();
     reg  [2:0] read_addr;
     reg  [7:0] write_data;
 
-    reg [7:0] read_data;
+    wire [7:0] read_data;
     reg  [7:0] expected_data;
     integer i;
 
@@ -45,12 +45,12 @@ module tb_register_file();
     #1;
     for(i=0;i<8;i=i+1) begin
         // synch write
-        @(posedge clk);
-        #1;
         rst=1'b0;
         we=1'b1;
         write_addr = i;
         write_data = $random & 8'hFF;
+        @(posedge clk);
+        #1;
 
         // asynch read
         read_addr=i;
