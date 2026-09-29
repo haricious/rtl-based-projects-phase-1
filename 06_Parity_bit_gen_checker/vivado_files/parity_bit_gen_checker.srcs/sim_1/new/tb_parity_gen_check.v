@@ -21,6 +21,8 @@ for(i=0;i<256;i=i+1) begin
         $display("PASS: Data=%08b, acctual parity_bit=%08b, expected parity=%08b",data,parity_bit,expected_parity);
 end
 
+end
+
 $finish;
 
 
