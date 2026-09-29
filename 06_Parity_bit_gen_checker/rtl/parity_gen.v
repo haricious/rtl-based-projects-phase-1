@@ -7,6 +7,4 @@ module parity_gen(
 
 assign parity_bit = ^data;
 
-
-
 endmodule
