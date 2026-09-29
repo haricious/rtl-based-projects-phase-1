@@ -10,13 +10,13 @@ The aim is to understand what each piece of RTL describes and how it behaves in 
 
 | Metric | Value |
 |---|---|
-| Projects complete | 4 / 10 (40%) |
-| RTL designs | 4 |
-| Testbenches | 4 (all self-checking) |
+| Projects complete | 5 / 10 (50%) |
+| RTL designs | 5 |
+| Testbenches | 5 (all self-checking) |
 | Regression | All passing |
 | Fault injection | Applied to projects 02, 03, and 04 |
 | Synthesis inspection | Applied to project 03 |
-| Current project | 05: Flip-Flop Register File |
+| Current project | 06: Parity Generator and Checker |
 
 ---
 
@@ -48,11 +48,11 @@ Combinational logic comes first, followed by sequential and control designs. A p
 | 02 | 8:1 Multiplexer | Hierarchical routing | Complete |
 | 03 | 3:8 Decoder | Address and control selection | Complete |
 | 04 | Priority Encoder | Arbitration | Complete |
-| 05 | Flip-Flop Register File | Storage | Next |
-| 06 | 4-bit Binary Counter | Sequencing and timing | Planned |
-| 07 | Traffic Light Controller | Finite state machines | Planned |
-| 08 | Sequence Detector | Pattern recognition | Planned |
-| 09 | Parity Generator and Checker | Error detection | Planned |
+| 05 | Flip-Flop Register File | Storage | Complete |
+| 06 | Parity Generator and Checker | Error detection | Next |
+| 07 | Sequence Detector | Pattern recognition | Planned |
+| 08 | Traffic Light Controller | Finite state machines | Planned |
+| 09 | 4-bit Binary Counter | Sequencing and timing | Planned |
 | 10 | PWM Controller | Timing and signal control | Planned |
 
 ---
@@ -185,6 +185,27 @@ The `casez` implementation expresses the same priority using wildcard patterns:
 
 ---
 
+### 05: Flip-Flop Register File
+
+| Item | Detail |
+|---|---|
+| Structure | 8 registers x 8 bits |
+| Storage | 64 flip-flops |
+| Write | Synchronous, active-high write enable |
+| Read | Asynchronous/combinational |
+| Verification | Self-checking testbench |
+| Coverage | All 8 register addresses |
+| Address isolation | Verified with scrambled reads |
+| Regression | 8/8 pass |
+
+The register file contains eight independent 8-bit registers. A 3-bit `write_addr` selects the register written on the active clock edge when `we=1`. A 3-bit `read_addr` selects the register for asynchronous readback through `read_data`.
+
+The testbench uses a reference array, `expected_regs[0:7]`, to remember the expected contents of each register. The verification flow writes all eight registers first, then reads them back in a scrambled order (`5, 2, 7, 0, 4, 1, 6, 3`) to verify address isolation.
+
+**Verification finding.** An early checker version printed `PASS` for `X` versus `X` because the display logic reported the `else` branch when `!==` evaluated false. Separating the write and read phases and checking `expected_regs[read_addr]` produced the intended 8/8 address-isolation regression.
+
+---
+
 ## Workflow
 
 Each project follows the same sequence:
@@ -219,7 +240,7 @@ Compiling is not treated as completion. A design is complete when it has been ex
 
 ## Next
 
-**Project 05: Flip-Flop Register File.** The next design moves from purely combinational logic into sequential storage. The focus will be on registers, clocked state, write enable, read selection, and how an array of flip-flops becomes a register file.
+**Project 06: Parity Generator and Checker.** The next design moves from storage back to data-integrity logic. The focus will be on parity generation, parity checking, XOR relationships, and self-checking verification.
 
 ---
 
@@ -229,11 +250,11 @@ Compiling is not treated as completion. A design is complete when it has been ex
 - [x] 02: 8:1 Multiplexer
 - [x] 03: 3:8 Decoder
 - [x] 04: Priority Encoder
-- [ ] 05: Flip-Flop Register File
-- [ ] 06: 4-bit Binary Counter
-- [ ] 07: Traffic Light Controller
-- [ ] 08: Sequence Detector
-- [ ] 09: Parity Generator and Checker
+- [x] 05: Flip-Flop Register File
+- [ ] 06: Parity Generator and Checker
+- [ ] 07: Sequence Detector
+- [ ] 08: Traffic Light Controller
+- [ ] 09: 4-bit Binary Counter
 - [ ] 10: PWM Controller
 
-**Phase 01: 40% complete (4 of 10).**
+**Phase 01: 50% complete (5 of 10).**
