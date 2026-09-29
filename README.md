@@ -5,19 +5,6 @@ A sequence of ten small digital designs covering RTL coding, simulation, verific
 The aim is to understand what each piece of RTL describes and how it behaves in hardware, not to accumulate source files.
 
 ---
-
-## Status
-
-| Metric | Value |
-|---|---|
-| Projects complete | 5 / 10 (50%) |
-| RTL designs | 5 |
-| Testbenches | 5 (all self-checking) |
-| Regression | All passing |
-| Fault injection | Applied to projects 02, 03, and 04 |
-| Synthesis inspection | Applied to project 03 |
-| Current project | 06: Parity Generator and Checker |
-
 ---
 
 ## Scope
@@ -27,7 +14,8 @@ digital design
 ├── combinational
 │   ├── multiplexer
 │   ├── decoder
-│   └── encoder
+│   ├── encoder
+│   └── parity / error detection
 ├── sequential
 │   ├── register file
 │   └── counter
@@ -49,8 +37,8 @@ Combinational logic comes first, followed by sequential and control designs. A p
 | 03 | 3:8 Decoder | Address and control selection | Complete |
 | 04 | Priority Encoder | Arbitration | Complete |
 | 05 | Flip-Flop Register File | Storage | Complete |
-| 06 | Parity Generator and Checker | Error detection | Next |
-| 07 | Sequence Detector | Pattern recognition | Planned |
+| 06 | Parity Generator and Checker | Error detection | Complete |
+| 07 | Sequence Detector | Pattern recognition | Next |
 | 08 | Traffic Light Controller | Finite state machines | Planned |
 | 09 | 4-bit Binary Counter | Sequencing and timing | Planned |
 | 10 | PWM Controller | Timing and signal control | Planned |
@@ -86,8 +74,8 @@ Built from 4 three-input AND gates, 1 four-input OR gate, and 2 inverters.
 sel[1:0] -----> 4:1 MUX --+
                            +--> 2:1 MUX --> y
 sel[1:0] -----> 4:1 MUX --+        ^
-                                  |
-                               sel[2]
+                                    |
+                                 sel[2]
 ```
 
 **Debug finding.** The testbench failed on the first run because of a wiring error in the final 2:1 selection stage. The failing cases were traced to that stage, the connection was corrected, and the regression passed 8/8.
@@ -107,7 +95,7 @@ sel[1:0] -----> 4:1 MUX --+        ^
 | Regression | 8/8 pass, 0 fail |
 | Synthesis | Inspected in Vivado |
 
-A 3-bit binary input produces an 8-bit one-hot output:
+A 3-bit binary input produces an 8-bit one-hot output.
 
 | Input | Output |
 |:---:|:---:|
@@ -148,7 +136,7 @@ A 4-input priority encoder accepts `D[3:0]` with priority:
 D3 > D2 > D1 > D0
 ```
 
-The highest-priority asserted input determines the binary output:
+The highest-priority asserted input determines the binary output.
 
 | Winning input | `Y` | `V` |
 |:---:|:---:|:---:|
@@ -206,6 +194,93 @@ The testbench uses a reference array, `expected_regs[0:7]`, to remember the expe
 
 ---
 
+### 06: Parity Generator and Checker
+
+| Item | Detail |
+|---|---|
+| Implementation | Reduction-XOR parity generator and combinational checker |
+| Structure | Generator + checker + error injection path |
+| Parity | Even parity, with odd-parity relationship derived |
+| Verification | Self-checking exhaustive generator/checker tests |
+| Coverage | 256 generator cases + 512 checker cases |
+| Fault injection | Completed |
+| Error injection | 1-bit, 2-bit, and 3-bit corruption verified |
+| X behavior | Verified in simulation |
+| Regression | Passing |
+
+The parity generator uses reduction XOR:
+
+```verilog
+assign parity_bit = ^data;
+```
+
+For even parity:
+
+```text
+parity = ^data
+```
+
+For odd parity:
+
+```text
+parity = ~^data
+```
+
+The checker computes a syndrome from the received data and parity bit:
+
+```verilog
+assign syndrome = ^rx_data ^ rx_parity;
+```
+
+For a valid even-parity transmission:
+
+```text
+syndrome = 0
+```
+
+A single-bit corruption changes the parity condition:
+
+```text
+1-bit error  → syndrome = 1
+```
+
+An even number of bit flips can return the parity condition to a valid state:
+
+```text
+2-bit error  → syndrome = 0
+```
+
+An odd number of bit flips remains detectable:
+
+```text
+3-bit error  → syndrome = 1
+```
+
+The integrated model uses an error mask:
+
+```verilog
+assign rx_data = tx_data ^ error_mask;
+```
+
+This makes the error behavior explicit. The syndrome can be derived algebraically as:
+
+```text
+syndrome = ^(data ^ error_mask) ^ ^data
+         = ^error_mask
+```
+
+so the checker effectively responds to the parity of the error pattern.
+
+**Verification.** The generator was exhaustively tested over all 256 possible 8-bit inputs. The checker was exhaustively tested over all 512 combinations of 8-bit data and parity.
+
+**Fault injection.** The generator was deliberately mutated from even parity to odd parity. The self-checking testbench detected the resulting mismatches across the tested input space.
+
+**Simulation finding.** Unknown (`X`) bits propagate through reduction XOR and the checker logic. An unknown input can therefore produce an `X` syndrome rather than a definite pass or fail result.
+
+**Hardware reasoning.** An 8-input parity function can be implemented with 7 two-input XOR gates. A balanced XOR tree has 3 logic levels, while a linear XOR chain has 7 levels. The reduction operator expresses the function compactly and allows synthesis to choose an implementation appropriate to the target technology.
+
+---
+
 ## Workflow
 
 Each project follows the same sequence:
@@ -240,7 +315,7 @@ Compiling is not treated as completion. A design is complete when it has been ex
 
 ## Next
 
-**Project 06: Parity Generator and Checker.** The next design moves from storage back to data-integrity logic. The focus will be on parity generation, parity checking, XOR relationships, and self-checking verification.
+**Project 07: Sequence Detector.** The next design moves into sequential pattern recognition. The focus will be on state, clocked behavior, finite state machine structure, state transitions, and self-checking verification.
 
 ---
 
@@ -251,10 +326,10 @@ Compiling is not treated as completion. A design is complete when it has been ex
 - [x] 03: 3:8 Decoder
 - [x] 04: Priority Encoder
 - [x] 05: Flip-Flop Register File
-- [ ] 06: Parity Generator and Checker
+- [x] 06: Parity Generator and Checker
 - [ ] 07: Sequence Detector
 - [ ] 08: Traffic Light Controller
 - [ ] 09: 4-bit Binary Counter
 - [ ] 10: PWM Controller
 
-**Phase 01: 50% complete (5 of 10).**
+**Phase 01: 60% complete (6 of 10).**
