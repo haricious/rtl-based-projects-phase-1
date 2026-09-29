@@ -1,7 +1,4 @@
-// testcase for register file using loop
-
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
 
 module tb_register_file();
 
@@ -12,7 +9,7 @@ module tb_register_file();
     reg  [7:0] write_data;
 
     wire [7:0] read_data;
-    reg [7:0] expected_regs [0:7];
+    reg  [7:0] expected_regs [0:7];
     integer i;
 
     // clock generation
@@ -38,7 +35,6 @@ module tb_register_file();
         write_addr = 0;
         read_addr = 0;
         write_data = 0;
-        expected_data = 0;
         rst=0;
 
         #10;
@@ -54,13 +50,13 @@ module tb_register_file();
 
         // asynch read
         read_addr=i;
-        expected_data=write_data;
+        expected_regs[i]=write_data;
         #1;
-        if (read_data !== expected_data) begin
-        $display("R%d: FAIL: Expected data=%b, Data read=%b", i,expected_data, read_data);
+        if (read_data !== expected_regs[i]) begin
+        $display("R%d: FAIL: Expected data=%b, Data read=%b", i,expected_regs[i], read_data);
         end
         else begin
-        $display("R%d: PASS: Expected data=%b, Data read=%b", i,expected_data, read_data);
+        $display("R%d: PASS: Expected data=%b, Data read=%b", i,expected_regs[i], read_data);
         end
 
     end
