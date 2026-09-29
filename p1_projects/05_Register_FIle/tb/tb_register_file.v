@@ -292,6 +292,7 @@ module tb_register_file();
 
     wire [7:0] read_data;
     reg  [7:0] expected_regs [0:7];
+    reg [2:0] read_order [0:7];
     integer i;
     integer seed;
 
@@ -331,6 +332,7 @@ module tb_register_file();
         write_data = $random(seed) & 8'hFF;
         @(posedge clk);
         #1;
+        we=1'b0;
 
         // asynch read
         read_addr=i;
