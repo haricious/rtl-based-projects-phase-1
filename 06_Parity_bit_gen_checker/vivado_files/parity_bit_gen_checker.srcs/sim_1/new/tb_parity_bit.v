@@ -1,6 +1,6 @@
 `timescale 1ns /1ps
 
-module tb_parity_gen_check();
+module tb_parity_bit();
 
 reg [7:0]data;
 wire parity_bit;
