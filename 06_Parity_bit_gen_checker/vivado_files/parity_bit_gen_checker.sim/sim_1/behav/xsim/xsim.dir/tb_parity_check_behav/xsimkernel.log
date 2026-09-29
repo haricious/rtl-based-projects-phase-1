@@ -1,0 +1,4 @@
+Running: xsim.dir/tb_parity_check_behav/xsimk -simmode gui -wdb tb_parity_check_behav.wdb -simrunnum 0 -socket 44121
+Design successfully loaded
+Design Loading Memory Usage: 417324 KB (Peak: 417380 KB)
+Design Loading CPU Usage: 2010 ms
