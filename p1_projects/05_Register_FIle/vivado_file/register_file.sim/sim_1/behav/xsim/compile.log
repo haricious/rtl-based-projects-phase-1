@@ -1,7 +1,0 @@
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/05_Register_FIle/vivado_file/register_file.srcs/sources_1/new/register_file.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module register_file
-INFO: [VRFC 10-2263] Analyzing Verilog file "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/05_Register_FIle/vivado_file/register_file.srcs/sim_1/new/tb_register_file.v" into library xil_defaultlib
-INFO: [VRFC 10-311] analyzing module tb_register_file
-ERROR: [VRFC 10-4982] syntax error near 'end' [/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/05_Register_FIle/vivado_file/register_file.srcs/sim_1/new/tb_register_file.v:68]
-ERROR: [VRFC 10-8549] Verilog 2000 keyword 'end' used in incorrect context [/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/05_Register_FIle/vivado_file/register_file.srcs/sim_1/new/tb_register_file.v:68]
-ERROR: [VRFC 10-8530] module 'tb_register_file' is ignored due to previous errors [/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/05_Register_FIle/vivado_file/register_file.srcs/sim_1/new/tb_register_file.v:4]
