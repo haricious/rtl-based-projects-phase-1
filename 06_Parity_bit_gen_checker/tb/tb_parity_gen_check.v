@@ -6,9 +6,10 @@ reg [7:0] error_mask;
 reg [7:0] data;
 wire [7:0] tx_data;
 wire tx_parity;
-wire rx_data;
+wire [7:0]rx_data;
 wire rx parity;
 wire syndrome;
+
 
 parity_gen_check dut(
     .data(data),
@@ -24,20 +25,16 @@ initial begin
 #10;
 data=8'b00000000;
 error_mask=8'b00000000;
-tx_data=8'b0000000;
-rx_data=0;
-tx_parity=0;
-rx_parity=0;
-syndrome=0;
 
 #10;
 data=8'b10101100;
 error_mask=8'b00000000;
-tx_data=data;
-tx_parity=0;
-rx_data=tx_data;
-rx_parity=0;
-syndrome=0;
+
+#1;
+$display("data=%08b",data);
+$display("error_mask=%08b",error_mask);
+$display("tx_data=%08b, tx_parity=%08b", tx_data, tx_parity);
+$display("rx_data=%08b, rx_parity=%08b, syndrome=%0b", rx_data, rx_parity,syndrome);
 
 #10;
 
