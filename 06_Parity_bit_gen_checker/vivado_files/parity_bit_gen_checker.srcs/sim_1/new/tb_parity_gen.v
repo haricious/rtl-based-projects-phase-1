@@ -7,7 +7,7 @@ reg [7:0] data;
 wire [7:0] tx_data;
 wire tx_parity;
 wire [7:0]rx_data;
-wire rx parity;
+wire rx_parity;
 wire syndrome;
 
 
