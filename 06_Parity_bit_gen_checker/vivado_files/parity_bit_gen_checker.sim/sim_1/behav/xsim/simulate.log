@@ -256,3 +256,4 @@ PASS: Data=11111101, actual parity=1, expected parity=1
 PASS: Data=11111110, actual parity=1, expected parity=1
 PASS: Data=11111111, actual parity=0, expected parity=0
 $finish called at time : 266 ns : File "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/06_Parity_bit_gen_checker/vivado_files/parity_bit_gen_checker.srcs/sim_1/new/tb_parity_gen_check.v" Line 41
+INFO: xsimkernel Simulation Memory Usage: 499060 KB (Peak: 556592 KB), Simulation CPU Usage: 1950 ms
