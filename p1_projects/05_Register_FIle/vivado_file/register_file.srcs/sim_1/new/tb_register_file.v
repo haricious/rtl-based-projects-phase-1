@@ -11,11 +11,9 @@ module tb_register_file();
 
     wire [7:0] read_data;
     reg  [7:0] expected_data;
-    integer i;
 
     // clock generation
     always #5 clk = ~clk;
-   
 
     // module instantiation
     register_file dut (
@@ -62,9 +60,6 @@ module tb_register_file();
         end
 
         $finish;
-
-        end
-        
     end
 
 endmodule
