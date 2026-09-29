@@ -9,7 +9,7 @@ module parity_gen_check(
 
     output [7:0] rx_data,
     output rx_parity,
-    output syndrome, 
+    output syndrome 
     );
 
 
