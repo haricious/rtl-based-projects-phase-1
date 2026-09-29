@@ -69,6 +69,7 @@ module tb_register_file();
     #1;
     read_addr = 3'b101;
     expected_data = 8'b10100101;
+    #1;
     if (read_data !== expected_data) begin
         $display("FAIL: Expected data=%b, Data read=%b",
                  expected_data, read_data);
