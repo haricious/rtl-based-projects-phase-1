@@ -250,18 +250,23 @@ module tb_register_file();
         #10;
     #1;
     for(i=0;i<8;i=i+1) begin
-        write_addr = i;
-        write_data = $random & 8'hFF;
+        // synch write
         @(posedge clk);
         #1;
-        read_data=i;
+        rst=1'b0;
+        we=1'b1;
+        write_addr = i;
+        write_data = $random & 8'hFF;
+
+        // asynch read
+        read_addr=i;
         expected_data=write_data;
         #1;
         if (read_data !== expected_data) begin
-        $display("%d: FAIL: Expected data=%b, Data read=%b", write_addr[i],expected_data, read_data);
+        $display("R%d: FAIL: Expected data=%b, Data read=%b", i,expected_data, read_data);
         end
         else begin
-        $display("%d: PASS: Expected data=%b, Data read=%b", write_addr[i],expected_data, read_data);
+        $display("R%d: PASS: Expected data=%b, Data read=%b", i,expected_data, read_data);
         end
 
     end
