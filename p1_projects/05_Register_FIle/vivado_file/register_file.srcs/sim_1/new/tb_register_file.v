@@ -9,7 +9,7 @@ module tb_register_file();
     reg  [2:0] read_addr;
     reg  [7:0] write_data;
 
-    reg [7:0] read_data;
+    wire [7:0] read_data;
     reg  [7:0] expected_data;
     integer i;
 
