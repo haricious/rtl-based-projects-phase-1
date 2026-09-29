@@ -44,21 +44,67 @@ module tb_parity_gen();
 
 endmodule
 
+
+
+`timescale 1ns / 1ps
+
+module parity_check(
+    input  [7:0] rx_data,
+    input        rx_parity,
+    output       syndrome
+);
+
+    assign syndrome = ^rx_data ^ rx_parity;
+
+endmodule
+
+
+// testcase to check 8-bit parity checker
 module tb_parity_check();
 
-wire rx_data;
-wire rx_parity;
+    reg  [7:0] rx_data;
+    reg        rx_parity;
+    wire       syndrome;
 
-reg syndrome;
+    reg        expected_syndrome;
 
-integer i;
+    integer i;
 
-parity_check dut(.rx_data(rx_data), .rx_parity(rx_parity), .syndrome(syndrome));
+    parity_check dut (
+        .rx_data(rx_data),
+        .rx_parity(rx_parity),
+        .syndrome(syndrome)
+    );
 
-initial begin
+    initial begin
 
+        #10;
 
+        for(i = 0; i < 512; i = i + 1) begin
 
-end
+            rx_data   = i;
+            rx_parity = i[8];
+
+            expected_syndrome = ^rx_data ^ rx_parity;
+
+            #1;
+
+            if(syndrome !== expected_syndrome) begin
+                $display(
+                    "FAIL: rx_data=%08b, rx_parity=%b, actual syndrome=%b, expected syndrome=%b",
+                    rx_data, rx_parity, syndrome, expected_syndrome
+                );
+            end
+            else begin
+                $display(
+                    "PASS: rx_data=%08b, rx_parity=%b, syndrome=%b",
+                    rx_data, rx_parity, syndrome
+                );
+            end
+
+        end
+
+        $finish;
+    end
 
 endmodule
