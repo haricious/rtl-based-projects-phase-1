@@ -52,7 +52,7 @@ module tb_register_file();
         read_addr=i;
         expected_regs[i]=write_data;
         #1;
-        if (read_data !== expected_regs[i]) begin
+        if (read_data !== expected_regs[read_addr]) begin
         $display("R%d: FAIL: Expected data=%b, Data read=%b", i,expected_regs[i], read_data);
         end
         else begin
