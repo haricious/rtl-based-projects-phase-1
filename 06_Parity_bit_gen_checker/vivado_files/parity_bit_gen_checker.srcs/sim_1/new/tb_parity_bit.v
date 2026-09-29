@@ -1,6 +1,6 @@
+// testcase to check 8bit parity generator
 `timescale 1ns /1ps
-
-module tb_parity_bit();
+module tb_parity_gen_check();
 
 reg [7:0]data;
 wire parity_bit;
@@ -16,9 +16,9 @@ for(i=0;i<256;i=i+1) begin
     #1;
     expected_parity = ^data;
     if(parity_bit!==expected_parity)
-        $display("FAIL: Data=%0b, acctual parity_bit=%0b, expected parity=%0b",data,parity_bit,expected_parity);
+        $display("FAIL: Data=%08b, acctual parity_bit=%08b, expected parity=%08b",data,parity_bit,expected_parity);
     else
-        $display("PASS: Data=%0b, acctual parity_bit=%0b, expected parity=%0b",data,parity_bit,expected_parity);
+        $display("PASS: Data=%08b, acctual parity_bit=%08b, expected parity=%08b",data,parity_bit,expected_parity);
 end
 
 $finish;
