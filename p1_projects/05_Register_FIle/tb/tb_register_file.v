@@ -90,24 +90,7 @@ module tb_register_file();
     read_addr = 3'b010;
     expected_data = write_data;
     #1;
-    if (read_data !== expected_darst=1'b0;
-    we = 1'b1;
-    write_addr = 3'b110;
-    write_data = $random & 8'hFF;
-    @(posedge clk);
-    #1;
-    read_addr = 3'b110;
-    expected_data = write_data;
-    #1;
     if (read_data !== expected_data) begin
-        $display("R6: FAIL: Expected data=%b, Data read=%b",
-                 expected_data, read_data);
-    end
-    else begin
-        $display("R6: PASS: Expected data=%b, Data read=%b",
-                 expected_data, read_data);
-    end
-ta) begin
         $display("R2: FAIL: Expected data=%b, Data read=%b",
                  expected_data, read_data);
     end
