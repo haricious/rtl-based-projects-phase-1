@@ -1,7 +1,7 @@
 # compile verilog/system verilog design source files
 verilog xil_defaultlib  --include "../../../../../../../../../Vivado/2025.2/data/rsb/busdef" \
-"../../../../parity_bit_gen_checker.srcs/sources_1/new/parity_gen.v" \
-"../../../../parity_bit_gen_checker.srcs/sim_1/new/tb_parity_gen_check.v" \
+"../../../../parity_bit_gen_checker.srcs/sources_1/new/parity_check.v" \
+"../../../../parity_bit_gen_checker.srcs/sim_1/new/tb_parity_check.v" \
 
 # compile glbl module
 verilog xil_defaultlib "glbl.v"
