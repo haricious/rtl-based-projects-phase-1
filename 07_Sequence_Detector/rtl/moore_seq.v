@@ -4,7 +4,7 @@ module moore_seq(
     output reg dout
 );
 
-reg state, nstate;
+reg [1:0]state;
 
 // state declaration
 
@@ -38,23 +38,40 @@ s0: begin
         state<=s1;
         dout<=1'b0;
     end
-
-
 end
-
-
-
-
-
-default: ;
+s1: begin
+    if(din==0) begin
+        state <= s2;
+        dout <=1'b0;
+    end
+    else begin
+        state<=s1;
+        dout<=1'b0;
+    end
+end
+s2: begin
+    if(din==0) begin
+        state <= s2;
+        dout <=1'b0;
+    end
+    else begin
+        state<=s3;
+        dout<=1'b0;
+    end
+end
+s3: begin
+    if(din==0) begin
+        state <= s2;
+        dout <=1'b0;
+    end
+    else begin
+        state<=s1;
+        dout<=1'b1;
+    end
+end
+default: begin state=s0; dout=1'b0; end
 endcase
 
-
 end
-
-
-
-
-
 
 endmodule
