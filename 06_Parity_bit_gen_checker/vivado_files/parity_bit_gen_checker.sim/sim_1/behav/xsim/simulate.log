@@ -1,1 +1,6 @@
 Time resolution is 1 ps
+data=10101100
+error_mask=00000001
+tx_data=10101100, tx_parity=00000000
+rx_data=10101101, rx_parity=00000000, syndrome=1
+$finish called at time : 31 ns : File "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/06_Parity_bit_gen_checker/vivado_files/parity_bit_gen_checker.srcs/sim_1/new/tb_parity_gen_check.v" Line 43
