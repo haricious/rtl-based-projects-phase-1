@@ -28,7 +28,7 @@ error_mask=8'b00000000;
 
 #10;
 data=8'b10101100;
-error_mask=8'b00000000;
+error_mask=8'b00000001;
 
 #1;
 $display("data=%08b",data);
