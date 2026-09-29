@@ -8,3 +8,4 @@ R1: PASS: Expected data=10000001, Data read=10000001
 R6: PASS: Expected data=01100101, Data read=01100101
 R3: PASS: Expected data=01100011, Data read=01100011
 $finish called at time : 94 ns : File "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/05_Register_FIle/vivado_file/register_file.srcs/sim_1/new/tb_register_file.v" Line 79
+INFO: xsimkernel Simulation Memory Usage: 499328 KB (Peak: 556600 KB), Simulation CPU Usage: 2530 ms
