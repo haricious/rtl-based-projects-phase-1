@@ -291,7 +291,7 @@ module tb_register_file();
     reg  [7:0] write_data;
 
     wire [7:0] read_data;
-    reg  [7:0] expected_data;
+    reg  [7:0] expected_regs [0:7];
     integer i;
 
     // clock generation
