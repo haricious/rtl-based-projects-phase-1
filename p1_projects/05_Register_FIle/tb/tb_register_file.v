@@ -317,7 +317,6 @@ module tb_register_file();
         write_addr = 0;
         read_addr = 0;
         write_data = 0;
-        expected_regs = 0;
         rst=0;
 
         #10;
