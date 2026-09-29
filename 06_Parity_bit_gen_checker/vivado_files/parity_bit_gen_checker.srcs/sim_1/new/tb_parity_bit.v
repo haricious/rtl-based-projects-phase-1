@@ -1,5 +1,5 @@
 // testcase to check 8bit parity generator
-
+`timescale 1ns /1ps
 module tb_parity_gen_check();
 
 reg [7:0]data;
@@ -21,7 +21,7 @@ for(i=0;i<256;i=i+1) begin
         $display("PASS: Data=%0b, acctual parity_bit=%0b, expected parity=%0b",data,parity_bit,expected_parity);
 end
 
-$finish
+$finish;
 
 
 endmodule
