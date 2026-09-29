@@ -5,6 +5,6 @@ module parity_gen(
     output parity_bit
 );
 
-assign parity_bit = ~(^data);
+assign parity_bit = ~^data;
 
 endmodule
