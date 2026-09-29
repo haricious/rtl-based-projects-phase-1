@@ -1,7 +1,7 @@
 // testcase to check 8bit parity generator
 `timescale 1ns / 1ps
 
-module tb_parity_gen_check();
+module tb_parity_gen();
 
     reg  [7:0] data;
     wire       parity_bit;
@@ -41,5 +41,24 @@ module tb_parity_gen_check();
 
         $finish;
     end
+
+endmodule
+
+module tb_parity_check();
+
+wire rx_data;
+wire rx_parity;
+
+reg syndrome;
+
+integer i;
+
+parity_check dut(.rx_data(rx_data), .rx_parity(rx_parity), .syndrome(syndrome));
+
+initial begin
+
+
+
+end
 
 endmodule
