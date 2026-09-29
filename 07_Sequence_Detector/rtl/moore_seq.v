@@ -1,5 +1,5 @@
 module moore_seq(
-    input [3:0] din,
+    input din,
     input clk, rst,
     output reg dout
 );
