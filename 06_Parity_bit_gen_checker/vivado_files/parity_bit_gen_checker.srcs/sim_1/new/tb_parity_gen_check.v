@@ -1,13 +1,13 @@
 `timescale 1ns / 1ps
 
-module tb_parity_gen();
+module tb_parity_gen_check();
 
 reg [7:0] error_mask;
 reg [7:0] data;
 wire [7:0] tx_data;
 wire tx_parity;
 wire [7:0]rx_data;
-wire rx parity;
+wire rx_parity;
 wire syndrome;
 
 
