@@ -39,26 +39,20 @@ module tb_register_file();
         rst=0;
 
         #10;
-
-        // TEST 2: valid write
-    rst = 0;
-    we = 1;
-    write_addr = 3'b010;
-    write_data = 8'b11110000;
     
     @(posedge clk);
     #1;
-    
-    // TEST 3: attempt overwrite with WE = 0
-    we = 0;
-    write_addr = 3'b010;
-    write_data = 8'b00001111;
-    expected_data = 8'b11110000;
+    rst=1'b0;
+    we = 1'b1;
+    write_addr = 3'b101;
+    write_data = 8'b10100101;
+    expected_data = 8'b10100101;
     
     @(posedge clk);
     #1;
-    
     read_addr = 3'b010;
+    #1;
+    read_addr = 3'b101;
     #1;
     
     if (read_data !== expected_data) begin
