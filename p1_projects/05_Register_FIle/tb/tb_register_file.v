@@ -322,13 +322,13 @@ module tb_register_file();
         rst=0;
         seed=$time;
         read_order[0] = 3'd5;
-    read_order[1] = 3'd2;
-    read_order[2] = 3'd7;
-    read_order[3] = 3'd0;
-    read_order[4] = 3'd4;
-    read_order[5] = 3'd1;
-    read_order[6] = 3'd6;
-    read_order[7] = 3'd3;
+        read_order[1] = 3'd2;
+        read_order[2] = 3'd7;
+        read_order[3] = 3'd0;
+        read_order[4] = 3'd4;
+        read_order[5] = 3'd1;
+        read_order[6] = 3'd6;
+        read_order[7] = 3'd3;
 
         #10;
     #1;
@@ -343,7 +343,7 @@ module tb_register_file();
         we=1'b0;
 
         // asynch read
-        read_addr=i;
+        read_addr=read_order[i];
         expected_regs[i]=write_data;
         #1;
         if (read_data !== expected_regs[read_addr]) begin
