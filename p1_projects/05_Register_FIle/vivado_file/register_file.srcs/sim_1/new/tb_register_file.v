@@ -4,7 +4,7 @@
 module tb_register_file();
 
     // port declaration
-    reg        clk, we;
+    reg rst, clk, we;
     reg  [2:0] write_addr;
     reg  [2:0] read_addr;
     reg  [7:0] write_data;
@@ -17,6 +17,7 @@ module tb_register_file();
 
     // module instantiation
     register_file dut (
+        .rst(rst),
         .clk(clk),
         .we(we),
         .write_addr (write_addr),
@@ -35,6 +36,7 @@ module tb_register_file();
         read_addr = 0;
         write_data = 0;
         expected_data = 0;
+        rst=0;
 
         #10;
 
@@ -42,7 +44,8 @@ module tb_register_file();
         write_addr = 3'b010;
         write_data = 8'b11110000;
         we = 0;
-        expected_data = 8'b11110000;
+        rst=1;
+        expected_data = 8'b00000000;
 
         @(posedge clk);
         #1;
