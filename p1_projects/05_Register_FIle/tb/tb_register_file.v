@@ -1,5 +1,4 @@
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
 
 module tb_register_file();
 
@@ -203,11 +202,9 @@ module tb_register_file();
 
 endmodule
 
-
 // testcase for register file using loop
 
 `timescale 1ns / 1ps
-//////////////////////////////////////////////////////////////////////////////////
 
 module tb_register_file();
 
@@ -278,7 +275,6 @@ module tb_register_file();
 endmodule
 
 
-
 // address isolation.
 `timescale 1ns / 1ps
 
@@ -338,19 +334,23 @@ module tb_register_file();
         we=1'b1;
         write_addr = i;
         write_data = $random(seed) & 8'hFF;
+        expected_regs[i]=write_data;
         @(posedge clk);
         #1;
         we=1'b0;
-
+        
+        end
+        
+    for(i=0;i<8;i=i+1) begin
         // asynch read
         read_addr=read_order[i];
-        expected_regs[i]=write_data;
+       
         #1;
         if (read_data !== expected_regs[read_addr]) begin
-        $display("R%d: FAIL: Expected data=%b, Data read=%b", i,expected_regs[i], read_data);
+        $display("R%0d: FAIL: Expected data=%b, Data read=%b", i,expected_regs[i], read_data);
         end
         else begin
-        $display("R%d: PASS: Expected data=%b, Data read=%b", i,expected_regs[i], read_data);
+        $display("R%0d: PASS: Expected data=%b, Data read=%b", i,expected_regs[i], read_data);
         end
 
     end
