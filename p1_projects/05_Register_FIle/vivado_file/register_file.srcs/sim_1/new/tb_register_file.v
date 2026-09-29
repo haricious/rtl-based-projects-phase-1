@@ -39,7 +39,7 @@ module tb_register_file();
         rst=0;
 
         #10;
-    
+    #1;
     // writing R2
     rst=1'b0;
     we = 1'b1;
