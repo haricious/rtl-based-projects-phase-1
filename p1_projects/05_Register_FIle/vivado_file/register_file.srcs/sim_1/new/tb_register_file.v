@@ -46,7 +46,7 @@ module tb_register_file();
     write_addr = 3'b010;
     write_data = 8'b00001111;
     
-    @posedge(clk);
+    @posedge(clk) begin
     #1;
     read_addr = 3'b010;
     expected_data = 8'b00001111;
@@ -58,6 +58,7 @@ module tb_register_file();
     else begin
         $display("PASS: Expected data=%b, Data read=%b",
                  expected_data, read_data);
+    end
     end
     
     //writing R5
