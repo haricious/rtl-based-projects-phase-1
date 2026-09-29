@@ -1,1 +1,10 @@
 Time resolution is 1 ps
+R          0: PASS: Expected data=00100100, Data read=00100100
+R          1: PASS: Expected data=10000001, Data read=10000001
+R          2: PASS: Expected data=00001001, Data read=00001001
+R          3: PASS: Expected data=01100011, Data read=01100011
+R          4: PASS: Expected data=00001101, Data read=00001101
+R          5: PASS: Expected data=10001101, Data read=10001101
+R          6: PASS: Expected data=01100101, Data read=01100101
+R          7: PASS: Expected data=00010010, Data read=00010010
+$finish called at time : 87 ns : File "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/p1_projects/05_Register_FIle/vivado_file/register_file.srcs/sim_1/new/tb_register_file.v" Line 67
