@@ -69,11 +69,9 @@ module tb_register_file();
        
         #1;
         if (read_data !== expected_regs[read_addr]) begin
-        $display("R%0d: FAIL: Expected data=%b, Data read=%b", i,expected_regs[i], read_data);
-        end
+         $display("R%0d: FAIL: Expected data=%b, Data read=%b", read_addr, expected_regs[read_addr], read_data);        end
         else begin
-        $display("R%0d: PASS: Expected data=%b, Data read=%b", i,expected_regs[i], read_data);
-        end
+        $display("R%0d: PASS: Expected data=%b, Data read=%b", read_addr, expected_regs[read_addr], read_data);        end
 
     end
 
