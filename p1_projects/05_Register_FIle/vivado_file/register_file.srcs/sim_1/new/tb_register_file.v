@@ -43,7 +43,7 @@ module tb_register_file();
         // testing write
         write_addr = 3'b010;
         write_data = 8'b11110000;
-        we = 0;
+        we = 1;
         rst=0;
         expected_data = 8'b11110000;
 
