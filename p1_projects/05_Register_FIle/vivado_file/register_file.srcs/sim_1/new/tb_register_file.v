@@ -44,8 +44,8 @@ module tb_register_file();
         write_addr = 3'b010;
         write_data = 8'b11110000;
         we = 0;
-        rst=1;
-        expected_data = 8'b00000000;
+        rst=0;
+        expected_data = 8'b11110000;
 
         @(posedge clk);
         #1;
