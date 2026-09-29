@@ -40,16 +40,16 @@ module tb_register_file();
 
         #10;
     
-    @(posedge clk);
-    #1;
     // writing R2
     rst=1'b0;
     we = 1'b1;
     write_addr = 3'b010;
     write_data = 8'b00001111;
-    expected_data = 8'b00001111;
+    
+    @posedge(clk);
     #1;
     read_addr = 3'b010;
+    expected_data = 8'b00001111;
     #1;
     if (read_data !== expected_data) begin
         $display("FAIL: Expected data=%b, Data read=%b",
@@ -65,9 +65,10 @@ module tb_register_file();
     we = 1'b1;
     write_addr = 3'b101;
     write_data = 8'b10100101;
-    expected_data = 8'b10100101;
+    @posedge(clk);
     #1;
     read_addr = 3'b101;
+    expected_data = 8'b10100101;
     if (read_data !== expected_data) begin
         $display("FAIL: Expected data=%b, Data read=%b",
                  expected_data, read_data);
