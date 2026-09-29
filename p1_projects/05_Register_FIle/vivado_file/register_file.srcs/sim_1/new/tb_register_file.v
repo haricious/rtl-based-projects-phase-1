@@ -63,7 +63,7 @@ module tb_register_file();
     //writing R1
     rst=1'b0;
     we=1'b1;
-    write_addr = 3'b001
+    write_addr = 3'b001;
     write_data=$random & 8'hFF;
     
     @(posedge clk);
