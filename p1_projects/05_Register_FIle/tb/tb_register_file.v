@@ -149,11 +149,11 @@ module tb_register_file();
     expected_data = write_data;
     #1;
     if (read_data !== expected_data) begin
-        $display("FAIL: Expected data=%b, Data read=%b",
+        $display("R5: FAIL: Expected data=%b, Data read=%b",
                  expected_data, read_data);
     end
     else begin
-        $display("PASS: Expected data=%b, Data read=%b",
+        $display("R5: PASS: Expected data=%b, Data read=%b",
                  expected_data, read_data);
     end
     #1;
