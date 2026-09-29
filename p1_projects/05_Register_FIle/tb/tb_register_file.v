@@ -293,6 +293,7 @@ module tb_register_file();
     wire [7:0] read_data;
     reg  [7:0] expected_regs [0:7];
     integer i;
+    integer seed;
 
     // clock generation
     always #5 clk = ~clk;
@@ -318,6 +319,7 @@ module tb_register_file();
         read_addr = 0;
         write_data = 0;
         rst=0;
+        seed=$time;
 
         #10;
     #1;
@@ -326,7 +328,7 @@ module tb_register_file();
         rst=1'b0;
         we=1'b1;
         write_addr = i;
-        write_data = $random & 8'hFF;
+        write_data = $random(seed) & 8'hFF;
         @(posedge clk);
         #1;
 
