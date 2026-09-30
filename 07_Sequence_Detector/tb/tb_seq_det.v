@@ -58,9 +58,26 @@ expected=0;
 #1;
 if(dout!==expected)
     $display("FAIL: din=%b, dout=%b, expected=%b", din, dout, expected);
+else
+    $display("PASS: din=%b, dout=%b, expected=%b", din, dout, expected);
 
+din=1;
+expected=0;
+@(posedge clk)
+#1;
+if(dout!==expected)
+    $display("FAIL: din=%b, dout=%b, expected=%b", din, dout, expected);
+else
+    $display("PASS: din=%b, dout=%b, expected=%b", din, dout, expected);
 
-
+din=1;
+expected=0;
+@(posedge clk)
+#1;
+if(dout!==expected)
+    $display("FAIL: din=%b, dout=%b, expected=%b", din, dout, expected);
+else
+    $display("PASS: din=%b, dout=%b, expected=%b", din, dout, expected);
 
 
 $finish;
