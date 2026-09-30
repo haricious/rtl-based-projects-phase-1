@@ -32,7 +32,6 @@ clk=0;
 din=0;
 rst=1;
 expected=0;
-#10;
 
 @(posedge clk);
 #1;
@@ -50,7 +49,7 @@ expected=0;
 if(dout!==expected)
     $display("FAIL: din=%b, dout=%b, expected=%b", din, dout, expected);
 else
-    $display("FAIL: din=%b, dout=%b, expected=%b", din, dout, expected);
+    $display("PASS: din=%b, dout=%b, expected=%b", din, dout, expected);
 
 din=0;
 expected=0;
