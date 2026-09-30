@@ -15,7 +15,7 @@ reg expected;
 
 //module instantiation
 
-moore_seq dut(
+mealy_seq dut(
     .din(din),
     .clk(clk),
     .rst(rst),
