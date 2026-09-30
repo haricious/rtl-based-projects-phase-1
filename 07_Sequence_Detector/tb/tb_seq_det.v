@@ -50,7 +50,7 @@ expected=0;
 if(dout!==expected)
     $display("FAIL: din=%b, dout=%b, expected=%b", din, dout, expected);
 else
-    $display("FAIL: din=%b, dout=%b, expected=%b", din, dout, expected);
+    $display("PASS: din=%b, dout=%b, expected=%b", din, dout, expected);
 
 din=0;
 expected=0;
