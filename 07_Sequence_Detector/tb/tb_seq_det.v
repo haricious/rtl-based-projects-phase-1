@@ -1,6 +1,6 @@
 `timescale 1ns /1ps
 
-
+// moore seq detector
 module tb_seq_det();
 
 //port declaration
