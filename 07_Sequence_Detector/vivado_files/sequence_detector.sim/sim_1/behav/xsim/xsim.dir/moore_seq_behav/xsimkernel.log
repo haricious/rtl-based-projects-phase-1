@@ -2,3 +2,6 @@ Running: xsim.dir/moore_seq_behav/xsimk -simmode gui -wdb moore_seq_behav.wdb -s
 Design successfully loaded
 Design Loading Memory Usage: 417324 KB (Peak: 417380 KB)
 Design Loading CPU Usage: 2120 ms
+Simulation completed
+Simulation Memory Usage: 499320 KB (Peak: 556592 KB)
+Simulation CPU Usage: 2140 ms
