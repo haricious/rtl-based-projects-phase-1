@@ -1,30 +1,25 @@
 `timescale 1ns / 1ps
 
-module tb_seq_det();
+module tb_mealy_seq;
 
-    // DUT inputs
     reg din;
     reg clk;
     reg rst;
 
-    // DUT output
     wire dout;
 
-    // Expected output
     reg expected;
 
-    // DUT instantiation
-    mealy_seq dut(
-        .din(din),
-        .clk(clk),
-        .rst(rst),
-        .dout(dout)
+    mealy_seq dut (
+        .din  (din),
+        .clk  (clk),
+        .rst  (rst),
+        .dout (dout)
     );
 
-    // Clock generation
+    // 10 ns clock
     always #5 clk = ~clk;
 
-    // Test logic
     initial begin
 
         clk      = 0;
@@ -35,6 +30,7 @@ module tb_seq_det();
         // -------------------------
         // RESET
         // -------------------------
+
         @(posedge clk);
         #1;
 
@@ -42,7 +38,8 @@ module tb_seq_det();
             $display("FAIL: RESET | dout=%b expected=%b",
                      dout, expected);
         else
-            $display("PASS: RESET | dout=%b", dout);
+            $display("PASS: RESET | dout=%b",
+                     dout);
 
         rst = 0;
 
@@ -51,56 +48,68 @@ module tb_seq_det();
         // -------------------------
 
         // bit 1
+        @(negedge clk);
         din      = 1;
         expected = 0;
+
         @(posedge clk);
         #1;
 
         if (dout !== expected)
-            $display("FAIL: din=%b | dout=%b expected=%b",
-                     din, dout, expected);
+            $display("FAIL: 1 | dout=%b expected=%b",
+                     dout, expected);
         else
-            $display("PASS: din=%b | dout=%b expected=%b",
-                     din, dout, expected);
+            $display("PASS: 1 | dout=%b",
+                     dout);
+
 
         // bit 1
+        @(negedge clk);
         din      = 1;
         expected = 0;
+
         @(posedge clk);
         #1;
 
         if (dout !== expected)
-            $display("FAIL: din=%b | dout=%b expected=%b",
-                     din, dout, expected);
+            $display("FAIL: 11 | dout=%b expected=%b",
+                     dout, expected);
         else
-            $display("PASS: din=%b | dout=%b expected=%b",
-                     din, dout, expected);
+            $display("PASS: 11 | dout=%b",
+                     dout);
+
 
         // bit 0
+        @(negedge clk);
         din      = 0;
         expected = 0;
+
         @(posedge clk);
         #1;
 
         if (dout !== expected)
-            $display("FAIL: din=%b | dout=%b expected=%b",
-                     din, dout, expected);
+            $display("FAIL: 110 | dout=%b expected=%b",
+                     dout, expected);
         else
-            $display("PASS: din=%b | dout=%b expected=%b",
-                     din, dout, expected);
+            $display("PASS: 110 | dout=%b",
+                     dout);
+
 
         // bit 1 → DETECT
+        @(negedge clk);
         din      = 1;
         expected = 1;
+
         @(posedge clk);
         #1;
 
         if (dout !== expected)
-            $display("FAIL: din=%b | dout=%b expected=%b",
-                     din, dout, expected);
+            $display("FAIL: 1101 | dout=%b expected=%b",
+                     dout, expected);
         else
-            $display("PASS: din=%b | dout=%b expected=%b",
-                     din, dout, expected);
+            $display("PASS: 1101 | dout=%b",
+                     dout);
+
 
         $finish;
 
