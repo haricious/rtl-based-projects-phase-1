@@ -5,3 +5,4 @@ PASS: din=0, dout=0, expected=0
 PASS: din=1, dout=0, expected=0
 FAIL: din=1, dout=1, expected=0
 $finish called at time : 56 ns : File "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/07_Sequence_Detector/vivado_files/sequence_detector.srcs/sim_1/new/tb_seq_det.v" Line 83
+INFO: xsimkernel Simulation Memory Usage: 499328 KB (Peak: 556600 KB), Simulation CPU Usage: 1730 ms
