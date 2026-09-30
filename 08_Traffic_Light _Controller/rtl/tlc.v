@@ -5,13 +5,13 @@
 module tlc(
     input clk, rst,
 
-    output A_red,
-    output A_yellow,
-    output A_green,
+    output reg A_red,
+    output reg A_yellow,
+    output reg A_green,
 
-    output B_red,
-    output B_yellow,
-    output B_green
+    output reg B_red,
+    output reg B_yellow,
+    output reg B_green
     );
 
     reg[1:0] state, nstate;
@@ -69,7 +69,7 @@ module tlc(
                 nstate=s2;    
         end
         s3: begin
-            if(timer=2)
+            if(timer==2)
                 nstate=s0;
             else
                 nstate=s3;
@@ -103,13 +103,13 @@ module tlc(
         s2:begin
             A_red=1'b1;
             A_yellow=1'b0;
-            A_green=1'0;
+            A_green=1'b0;
 
             B_red=1'b0;
             B_yellow=1'b0;
             B_green=1'b1;
         end
-        s0:begin
+        s3:begin
             A_red=1'b1;
             A_yellow=1'b0;
             A_green=1'b0;
@@ -122,6 +122,13 @@ module tlc(
 
 
         default: begin
+            A_red=1'b1;
+            A_yellow=1'b0;
+            A_green=1'b0;
+
+            B_red=1'b1;
+            B_yellow=1'b0;
+            B_green=1'b0;
 
         end
         endcase
