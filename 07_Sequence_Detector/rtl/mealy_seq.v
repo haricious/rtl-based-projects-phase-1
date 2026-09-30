@@ -25,30 +25,43 @@ else begin
     state<=nstate;
     case(state)
     s0: begin
-
+        if(din==1'b1) begin
+            nstate<=s1;
+            dout<=1'b0; end
+        else begin
+            nstate<=s0; 
+            dout<=1'b0; end
     end 
     s1: begin
-
+        if(din==1'b1) begin
+            nstate<=s2; 
+            dout<=1'b0; end
+        else begin
+            nstate<=s1
+            dout<=1'b0;end
     end
     s2: begin
-
+        if(din==1'b0) begin
+            nstate<=s3;
+            dout<=1'b0;end
+        else begin
+            nstate<=s2;
+            dout<=1'b0; end
     end
     s3: begin
-        
+        if(din==1'b1)begin
+            nstate<=s3;
+            dout<=1'b1; end
+        else
+            nstate<=s0;
+            dout<=1'b0;
+
     end
-
-
-
     default: nstate=s0; dout=0;
     endcase
 end 
 
-
-
-
-
 end
-
 
 
 endmodule
