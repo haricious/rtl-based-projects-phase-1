@@ -5,3 +5,4 @@ PASS: 11 | dout=0
 PASS: 110 | dout=0
 PASS: 1101 | dout=1
 $finish called at time : 46 ns : File "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/07_Sequence_Detector/vivado_files/seq_det.srcs/sim_1/new/tb_seq_det.v" Line 116
+INFO: xsimkernel Simulation Memory Usage: 499328 KB (Peak: 556600 KB), Simulation CPU Usage: 1960 ms

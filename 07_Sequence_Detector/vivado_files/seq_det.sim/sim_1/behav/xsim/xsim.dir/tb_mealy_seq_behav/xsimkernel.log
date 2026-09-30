@@ -2,3 +2,6 @@ Running: xsim.dir/tb_mealy_seq_behav/xsimk -simmode gui -wdb tb_mealy_seq_behav.
 Design successfully loaded
 Design Loading Memory Usage: 417332 KB (Peak: 417388 KB)
 Design Loading CPU Usage: 1960 ms
+Simulation completed
+Simulation Memory Usage: 499328 KB (Peak: 556600 KB)
+Simulation CPU Usage: 1960 ms
