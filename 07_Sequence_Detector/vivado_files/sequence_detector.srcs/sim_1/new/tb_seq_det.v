@@ -3,6 +3,9 @@
 // moore seq detector
 module tb_seq_det();
 
+// mealy seq detector 1101
+
+
 //port declaration
 
 reg din;
@@ -84,7 +87,4 @@ end
 
 endmodule
 
-
-
-// mealy seq detector 1101
 
