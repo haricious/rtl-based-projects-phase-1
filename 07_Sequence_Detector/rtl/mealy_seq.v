@@ -17,13 +17,15 @@ parameter s3=3'b011;
 
 // imma use 1 process methodology for seq rst + output logic + next state logic all in one
 always@(posedge clk) begin
-nstate=s0;
 //reset logic
-if(rst)
+if(rst) begin
     state<=s0;
-else begin
-    state<=nstate;
+    dout<=1'b0;
+    nstate<=s0;
+end
+else begin state<=nstate; 
     case(state)
+    
     s0: begin
         if(din==1'b1) begin
             nstate<=s1;
@@ -37,7 +39,7 @@ else begin
             nstate<=s2; 
             dout<=1'b0; end
         else begin
-            nstate<=s1
+            nstate<=s0;
             dout<=1'b0;end
     end
     s2: begin
@@ -50,14 +52,14 @@ else begin
     end
     s3: begin
         if(din==1'b1)begin
-            nstate<=s3;
+            nstate<=s1;
             dout<=1'b1; end
-        else
+        else begin
             nstate<=s0;
-            dout<=1'b0;
+            dout<=1'b0; end
 
     end
-    default: nstate=s0; dout=0;
+    default: nstate<=s0; dout<=1'b0;
     endcase
 end 
 
