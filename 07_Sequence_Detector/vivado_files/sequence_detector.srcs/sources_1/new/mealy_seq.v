@@ -66,7 +66,7 @@ always@(*)begin
             dout=1'b0; end
 
     end
-    default: nstate=s0; dout=1'b0;
+    default: begin nstate=s0; dout=1'b0 end;
     endcase
 end 
 
