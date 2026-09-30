@@ -31,7 +31,7 @@ initial begin
 clk=0;
 din=0;
 rst=1;
-expected=0
+expected=0;
 #10;
 
 @(posedge clk);
@@ -71,7 +71,7 @@ else
     $display("PASS: din=%b, dout=%b, expected=%b", din, dout, expected);
 
 din=1;
-expected=0;
+expected=1;
 @(posedge clk)
 #1;
 if(dout!==expected)
