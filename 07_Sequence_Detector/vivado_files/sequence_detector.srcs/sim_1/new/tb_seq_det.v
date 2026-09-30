@@ -31,7 +31,7 @@ initial begin
 clk=0;
 din=0;
 rst=1;
-expected=0
+expected=0;
 #10;
 
 @(posedge clk);
