@@ -40,7 +40,7 @@ end
 // combinational next state logic
 
 always@(*) begin 
-nstate=idle;
+nstate=s0;
 case(state)
 s0:begin
     if(din==1'b0)

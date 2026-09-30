@@ -96,19 +96,21 @@ module tb_mealy_seq;
 
 
         // bit 1 → DETECT
-        @(negedge clk);
-        din      = 1;
-        expected = 1;
-
-        @(posedge clk);
-        #1;
-
-        if (dout !== expected)
-            $display("FAIL: 1101 | dout=%b expected=%b",
-                     dout, expected);
-        else
-            $display("PASS: 1101 | dout=%b",
-                     dout);
+            @(negedge clk);
+            din      = 1;
+            expected = 1;
+            
+            #1;
+            
+            if (dout !== expected)
+                $display("FAIL: 1101 | dout=%b expected=%b",
+                         dout, expected);
+            else
+                $display("PASS: 1101 | dout=%b",
+                         dout);
+            
+            @(posedge clk);
+            #1;
 
 
         $finish;
