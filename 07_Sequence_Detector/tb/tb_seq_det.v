@@ -83,3 +83,8 @@ $finish;
 end
 
 endmodule
+
+
+
+// mealy seq detector 1101
+
