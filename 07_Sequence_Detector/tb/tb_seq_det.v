@@ -10,13 +10,15 @@ reg clk;
 reg rst;
 wire dout;
 
+reg expected;
+
 
 //module instantiation
 
 moore_seq dut(
-    .din(.din),
-    .clk(.clk),
-    .rst(.rst),
+    .din(din),
+    .clk(clk),
+    .rst(rst),
     .dout(dout)
 );
 
@@ -28,9 +30,34 @@ always #5 clk = ~clk;
 initial begin
 clk=0;
 din=0;
+rst=1;
+expected=0
+#10;
+
+@(posedge clk);
+#1;
+if(dout!==expected)
+    $display("FAIL: reset : dout=%b, expected=%b",dout, expected);
+else
+    $display("PASS: reset: dout=%b", dout);
+
 rst=0;
 
-#10;
+din=1;
+expected=0;
+@(posedge clk)
+#1;
+if(dout!==expected)
+    $display("FAIL: din=%b, dout=%b, expected=%b", din, dout, expected);
+else
+    $display("FAIL: din=%b, dout=%b, expected=%b", din, dout, expected);
+
+din=0;
+expected=0;
+@(posedge clk)
+#1;
+if(dout!==expected)
+    $display("FAIL: din=%b, dout=%b, expected=%b", din, dout, expected);
 
 
 
