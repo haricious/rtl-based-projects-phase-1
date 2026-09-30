@@ -15,55 +15,61 @@ parameter s1=3'b001;
 parameter s2=3'b010;
 parameter s3=3'b011;
 
-// imma use 1 process methodology for seq rst + output logic + next state logic all in one
+
 always@(posedge clk) begin
-//reset logic
+//seq reset logic
 if(rst) begin
     state<=s0;
-    dout<=1'b0;
-    nstate<=s0;
 end
-else begin state<=nstate; 
+else begin 
+    state<=nstate;
+end
+end
+
+//combinational next state and output logic
+
+always@(*)begin
+    nstate=s0;
+    dout=1'b0;
     case(state)
     
     s0: begin
         if(din==1'b1) begin
-            nstate<=s1;
-            dout<=1'b0; end
+            nstate=s1;
+            dout=1'b0; end
         else begin
-            nstate<=s0; 
-            dout<=1'b0; end
+            nstate=s0; 
+            dout=1'b0; end
     end 
     s1: begin
         if(din==1'b1) begin
-            nstate<=s2; 
-            dout<=1'b0; end
+            nstate=s2; 
+            dout=1'b0; end
         else begin
-            nstate<=s0;
-            dout<=1'b0;end
+            nstate=s0;
+            dout=1'b0;end
     end
     s2: begin
         if(din==1'b0) begin
-            nstate<=s3;
-            dout<=1'b0;end
+            nstate=s3;
+            dout=1'b0;end
         else begin
-            nstate<=s2;
-            dout<=1'b0; end
+            nstate=s2;
+            dout=1'b0; end
     end
     s3: begin
         if(din==1'b1)begin
-            nstate<=s1;
-            dout<=1'b1; end
+            nstate=s1;
+            dout=1'b1; end
         else begin
-            nstate<=s0;
-            dout<=1'b0; end
+            nstate=s0;
+            dout=1'b0; end
 
     end
-    default: nstate<=s0; dout<=1'b0;
+    default: begin nstate=s0; dout=1'b0; end
     endcase
 end 
 
 end
-
 
 endmodule
