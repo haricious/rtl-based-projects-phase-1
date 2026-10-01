@@ -13,7 +13,6 @@ wire B_yellow;
 wire B_green;
 
 
-// module instantiation
 tlc dut(
     .clk(clk),
     .rst(rst),
