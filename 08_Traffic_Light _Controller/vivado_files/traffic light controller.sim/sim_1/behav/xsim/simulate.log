@@ -1,3 +1,0 @@
-Time resolution is 1 ps
-$finish called at time : 105 ns : File "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/08_Traffic_Light _Controller/vivado_files/traffic light controller.srcs/sim_1/new/tb_tlc.v" Line 47
-INFO: xsimkernel Simulation Memory Usage: 499332 KB (Peak: 556604 KB), Simulation CPU Usage: 1920 ms
