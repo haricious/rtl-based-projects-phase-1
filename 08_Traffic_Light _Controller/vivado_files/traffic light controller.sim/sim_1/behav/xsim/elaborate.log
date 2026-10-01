@@ -12,3 +12,4 @@ Time Resolution for simulation is 1ps
 Compiling module xil_defaultlib.tlc
 Compiling module xil_defaultlib.tb_tlc
 Compiling module xil_defaultlib.glbl
+Built simulation snapshot tb_tlc_behav
