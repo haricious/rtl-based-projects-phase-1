@@ -37,6 +37,15 @@ initial  begin
 clk=0;
 rst=1;
 
+@(posedge clk);
+@(negedge clk);
+rst=0;
+
+repeat(10)
+    @(posedge clk);
+rst=0;
+$finish;
+
 
 
 end
