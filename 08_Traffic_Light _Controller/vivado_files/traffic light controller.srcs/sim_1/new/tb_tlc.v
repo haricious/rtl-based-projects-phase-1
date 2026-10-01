@@ -1,8 +1,11 @@
 `timescale 1ns / 1ps
 
+
 module tb_tlc();
-//port declaration
-reg clk, rst;
+
+// ports declaration
+reg clk;
+reg rst;
 
 wire A_red;
 wire A_yellow;
@@ -12,6 +15,7 @@ wire B_red;
 wire B_yellow;
 wire B_green;
 
+// module instantiation
 
 tlc dut(
     .clk(clk),
@@ -24,32 +28,27 @@ tlc dut(
     .B_green(B_green)
 );
 
-
 // clock generation
-always #500000000 clk=~clk;
+always #5 clk=~clk;
 
 
-// testing logic
+//asserting initial values
+initial  begin 
+clk=0;
+rst=1;
 
-initial begin
-    // initial values
-    clk=0;
-    rst=0;
+@(posedge clk);
+@(negedge clk);
+rst=0;
 
-    #100; rst=1;
+repeat(10)
     @(posedge clk);
-    @(negedge clk);    
-    rst=0;
-
-    repeat(10)
-        @(posedge clk);
-
-
+rst=0;
 $finish;
+
+
+
 end
-
-
-
 
 
 endmodule
