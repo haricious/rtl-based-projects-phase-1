@@ -15,6 +15,7 @@ wire B_red;
 wire B_yellow;
 wire B_green;
 
+
 // module instantiation
 
 tlc dut(
@@ -44,12 +45,14 @@ rst=0;
 repeat(10)
     @(posedge clk);
 rst=0;
+$display(dut.state, dut.timer);
 
 repeat(3)
     @(posedge clk);
 rst=0;
-$finish;
+$display(dut.state, dut.timer);
 
+$finish;
 
 
 end
