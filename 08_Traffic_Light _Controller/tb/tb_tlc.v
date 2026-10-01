@@ -30,7 +30,7 @@ tlc dut(
 );
 
 // clock generation
-always #5 clk=~clk;
+always #500000000 clk=~clk;
 
 
 //asserting initial values
@@ -49,6 +49,7 @@ rst=0;
 repeat(3)
     @(posedge clk);
 rst=0;
+
 $finish;
 
 
