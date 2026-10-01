@@ -15,8 +15,6 @@ wire B_red;
 wire B_yellow;
 wire B_green;
 
-integer i;
-
 // module instantiation
 
 tlc dut(
@@ -43,20 +41,13 @@ rst=1;
 @(negedge clk);
 rst=0;
 
-for(i=0;i<50;i=i+1) begin
-    repeat(10)
+repeat(10)
     @(posedge clk);
-    rst=0;
+rst=0;
 
-    repeat(3)
+repeat(3)
     @(posedge clk);
-    rst=0;
-
-    $display("State: %b, nstate: %b", state, nstate);
-
-end
-
-
+rst=0;
 $finish;
 
 
