@@ -29,7 +29,7 @@ tlc dut(
 );
 
 // clock generation
-always #5 clk=~clk;
+always #500000000 clk=~clk;
 
 
 //asserting initial values
