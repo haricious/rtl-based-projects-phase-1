@@ -72,7 +72,7 @@ module tlc(
             if(timer==2)
                 nstate=s0;
             else
-                nstate=s0;
+                nstate=s3;
         end
         default:nstate=s0;   
         endcase
