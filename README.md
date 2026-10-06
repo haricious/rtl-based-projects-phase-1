@@ -20,7 +20,6 @@ digital design
 │   └── counter
 └── control
     ├── finite state machine
-    └── PWM
 ```
 
 Combinational logic comes first, followed by sequential and control designs. A project starts only after the previous one is verified and documented.
@@ -38,10 +37,7 @@ Combinational logic comes first, followed by sequential and control designs. A p
 | **05** | Flip-Flop Register File | Storage | Complete |
 | **06** | Parity Generator and Checker | Error detection | Complete |
 | **07** | Sequence Detector | Pattern recognition | Complete |
-| **08** | Traffic Light Controller | FSM control and timing | Complete — Practice |
-| **09** | 4-bit Binary Counter | Sequencing and timing | Skipped |
-| **10** | PWM Controller | Timing and signal control | Skipped |
-
+| **08** | Traffic Light Controller | FSM control and timing | Complete |
 > The 4-bit counter and PWM entries are retained as historical learning-scaffold items. They are not added as extra projects before Phase 2.
 
 ---
@@ -469,9 +465,7 @@ The Phase 2 plan keeps the **Gray-code counter** as a targeted CDC/pointer drill
 - [x] **05:** Flip-Flop Register File
 - [x] **06:** Parity Generator and Checker
 - [x] **07:** Sequence Detector
-- [x] **08:** Traffic Light Controller — Practice complete
-- [ ] **09:** 4-bit Binary Counter — Skipped
-- [ ] **10:** PWM Controller — Skipped
+- [x] **08:** Traffic Light Controller
 
 **Phase 01 learning scaffold:** Complete for the intended fundamentals.
 **Transition:** Move directly to Phase 2; the skipped counter/PWM projects are not required to close Phase 1.
