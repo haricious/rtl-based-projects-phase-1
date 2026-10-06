@@ -15,6 +15,8 @@ wire B_red;
 wire B_yellow;
 wire B_green;
 
+reg expected_lit;
+
 
 // module instantiation
 
@@ -49,6 +51,44 @@ rst=0;
 repeat(3)
     @(posedge clk);
 rst=0;
+
+@(negedge clk);
+
+if (A_red === 1'b0 &&
+    A_yellow === 1'b0 &&
+    A_green === 1'b1 &&
+    B_red === 1'b1 &&
+    B_yellow === 1'b0 &&
+    B_green === 1'b0)
+    $display("S0 PASS");
+else $display("S0 FAIL");
+
+if (A_red === 1'b0 &&
+    A_yellow === 1'b1 &&
+    A_green === 1'b0 &&
+    B_red === 1'b1 &&
+    B_yellow === 1'b0 &&
+    B_green === 1'b0)
+    $display("S1 PASS");
+else $display("S1 FAIL");
+
+if (A_red === 1'b1 &&
+    A_yellow === 1'b0 &&
+    A_green === 1'b0 &&
+    B_red === 1'b0 &&
+    B_yellow === 1'b0 &&
+    B_green === 1'b1)
+    $display("S2 PASS");
+else $display("S2 FAIL");
+
+if (A_red === 1'b1 &&
+    A_yellow === 1'b0 &&
+    A_green === 1'b0 &&
+    B_red === 1'b0 &&
+    B_yellow === 1'b1 &&
+    B_green === 1'b0)
+    $display("S3 PASS");
+else $display("S3 FAIL");
 
 $finish;
 
