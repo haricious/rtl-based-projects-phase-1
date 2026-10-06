@@ -89,7 +89,7 @@ if (A_red === 1'b1 &&
     A_yellow === 1'b0 &&
     A_green === 1'b0 &&
     B_red === 1'b0 &&
-    B_yellow === 1'b0 &&
+    B_yellow === 1'b1 &&
     B_green === 1'b0)
     $display("S3 PASS");
 else $display("S3 FAIL");
