@@ -4,3 +4,4 @@ S1 PASS
 S2 PASS
 S3 FAIL
 $finish called at time : 24 s : File "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/08_Traffic_Light _Controller/vivado_files/traffic light controller.srcs/sim_1/new/tb_tlc.v" Line 97
+INFO: xsimkernel Simulation Memory Usage: 499332 KB (Peak: 556604 KB), Simulation CPU Usage: 1460 ms
