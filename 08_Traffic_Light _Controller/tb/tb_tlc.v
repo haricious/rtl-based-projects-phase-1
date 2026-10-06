@@ -15,8 +15,6 @@ wire B_red;
 wire B_yellow;
 wire B_green;
 
-reg expected_lit;
-
 
 // module instantiation
 
