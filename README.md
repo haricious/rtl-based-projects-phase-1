@@ -1,6 +1,6 @@
 # Phase 01: Digital Design Fundamentals
 
-A sequence of ten small digital designs covering RTL coding, simulation, verification, debugging, and synthesis. Each design is specified, implemented, verified against a reference model, deliberately broken to test the testbench, and then inspected after synthesis.
+A focused set of digital designs covering RTL coding, simulation, verification, debugging, and synthesis. The original small-project sequence is used as a learning scaffold; low-yield projects are intentionally pruned once the underlying concepts are demonstrated.
 
 The aim is to understand what each piece of RTL describes and how it behaves in hardware, not to accumulate source files.
 
@@ -38,9 +38,11 @@ Combinational logic comes first, followed by sequential and control designs. A p
 | **05** | Flip-Flop Register File | Storage | Complete |
 | **06** | Parity Generator and Checker | Error detection | Complete |
 | **07** | Sequence Detector | Pattern recognition | Complete |
-| **08** | Traffic Light Controller | Finite state machines | Planned |
-| **09** | 4-bit Binary Counter | Sequencing and timing | Planned |
-| **10** | PWM Controller | Timing and signal control | Planned |
+| **08** | Traffic Light Controller | FSM control and timing | Complete — Practice |
+| **09** | 4-bit Binary Counter | Sequencing and timing | Skipped |
+| **10** | PWM Controller | Timing and signal control | Skipped |
+
+> The 4-bit counter and PWM entries are retained as historical learning-scaffold items. They are not added as extra projects before Phase 2.
 
 ---
 
@@ -359,6 +361,64 @@ The testbench was corrected to drive the input on the opposite clock edge and ch
 * A self-checking testbench is only useful when its sampling point matches the actual hardware behavior.
 * Waveform timing is part of functional debugging, not just a visualization step.
 
+### 08: Traffic Light Controller
+
+| Item | Detail |
+|---|---|
+| **Type** | Moore FSM |
+| **Application** | Two-road traffic intersection |
+| **States** | S0, S1, S2, S3 |
+| **Timing model** | 1 clock cycle = 1 second |
+| **Verification** | Self-checking testbench |
+| **Fault Injection** | Completed |
+| **Regression** | S0/S1/S2/S3 all PASS |
+| **Long-run simulation** | 60-second run completed |
+
+The controller cycles through:
+
+```text
+S0 → S1 → S2 → S3 → S0
+```
+
+with durations:
+
+```text
+S0 = 10 s
+S1 = 3 s
+S2 = 10 s
+S3 = 3 s
+```
+
+Output behavior:
+
+| State | Road A | Road B |
+|---|---|---|
+| S0 | Green | Red |
+| S1 | Yellow | Red |
+| S2 | Red | Green |
+| S3 | Red | Yellow |
+
+The implementation uses a synchronous state register, timer-driven next-state logic, and combinational Moore output decoding. The testbench uses a 1 Hz clock so simulation time directly corresponds to the controller specification.
+
+Verification was performed from the six externally observable light outputs rather than the DUT's internal `state` signal. Each state was sampled after the transition had settled and compared against the expected light pattern using case equality (`===`).
+
+A deliberate S3 next-state mutation was introduced so that `timer != 2` incorrectly sent the FSM to S0. The shortened S3 yellow phase caused the S3 checker to fail, proving the testbench could detect a real functional fault. After restoring the RTL, the regression returned to:
+
+```text
+S0 PASS
+S1 PASS
+S2 PASS
+S3 PASS
+```
+
+#### Engineering lessons
+
+* A Moore FSM can be verified through externally observable outputs without exposing internal state.
+* Sequential state updates and combinational output updates occur in simulator scheduling steps at the same simulation timestamp.
+* Testbench sampling must occur after the DUT settles; sampling on the opposite clock edge is a simple approach for this design.
+* State duration is part of functional correctness, not just state decoding.
+* Mutation testing checks whether the self-checking testbench can detect real design faults.
+* An illegal-state output path can provide a safe all-red fallback.
 
 ## Workflow
 
@@ -394,7 +454,9 @@ Compiling is not treated as completion. A design is complete when it has been ex
 
 ## Next
 
-**Project 08: Traffic Light Controller.** The next design continues the FSM track and moves from sequence recognition into a control-oriented state machine with explicit state transitions, outputs, timing behavior, and verification.
+**Phase 2: Core RTL Builds.** The small-project learning scaffold is now closed. Do not add the old 4-bit counter or PWM controller just to increase the project count. Move directly into the locked Phase 2 work.
+
+The Phase 2 plan keeps the **Gray-code counter** as a targeted CDC/pointer drill; that is a different and higher-value exercise from the skipped beginner 4-bit counter.
 
 ---
 
@@ -407,8 +469,9 @@ Compiling is not treated as completion. A design is complete when it has been ex
 - [x] **05:** Flip-Flop Register File
 - [x] **06:** Parity Generator and Checker
 - [x] **07:** Sequence Detector
-- [ ] **08:** Traffic Light Controller
-- [ ] **09:** 4-bit Binary Counter
-- [ ] **10:** PWM Controller
+- [x] **08:** Traffic Light Controller — Practice complete
+- [ ] **09:** 4-bit Binary Counter — Skipped
+- [ ] **10:** PWM Controller — Skipped
 
-**Phase 01:** 70% complete (7 of 10 designs completed).
+**Phase 01 learning scaffold:** Complete for the intended fundamentals.
+**Transition:** Move directly to Phase 2; the skipped counter/PWM projects are not required to close Phase 1.
