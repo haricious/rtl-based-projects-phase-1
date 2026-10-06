@@ -1,1 +1,6 @@
 Time resolution is 1 ps
+S0 PASS
+S1 PASS
+S2 PASS
+S3 PASS
+$finish called at time : 24 s : File "/home/haricious/haricious/RTL/rtl-based-projects-phase-1/08_Traffic_Light _Controller/vivado_files/traffic light controller.srcs/sim_1/new/tb_tlc.v" Line 97
