@@ -42,16 +42,7 @@ rst=1;
 @(negedge clk);
 rst=0;
 
-repeat(10)
-    @(posedge clk);
-rst=0;
-
-repeat(3)
-    @(posedge clk);
-rst=0;
-
-@(negedge clk);
-
+// checking for S0;
 if (A_red === 1'b0 &&
     A_yellow === 1'b0 &&
     A_green === 1'b1 &&
@@ -61,6 +52,10 @@ if (A_red === 1'b0 &&
     $display("S0 PASS");
 else $display("S0 FAIL");
 
+// checking for S1;
+repeat(10)
+    @(posedge clk);
+@(negedge clk); 
 if (A_red === 1'b0 &&
     A_yellow === 1'b1 &&
     A_green === 1'b0 &&
@@ -70,6 +65,12 @@ if (A_red === 1'b0 &&
     $display("S1 PASS");
 else $display("S1 FAIL");
 
+
+//checking for S2
+repeat(3)
+    @(posedge clk);
+rst=0;
+@(negedge clk);
 if (A_red === 1'b1 &&
     A_yellow === 1'b0 &&
     A_green === 1'b0 &&
@@ -78,6 +79,11 @@ if (A_red === 1'b1 &&
     B_green === 1'b1)
     $display("S2 PASS");
 else $display("S2 FAIL");
+
+//checking for S3;
+repeat(10)
+    @(posedge clk);
+@(negedge clk); 
 
 if (A_red === 1'b1 &&
     A_yellow === 1'b0 &&
